@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME  # Replace with your GitHub repo (e.g. jsmith/mi-casa-care-homes)
+  repo: jahkrumme/mi-casa
   branch: main  # Replace if your default branch is named differently
 
 media_folder: images
