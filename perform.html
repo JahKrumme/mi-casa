@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGC72RX2BR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HGC72RX2BR');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perform at Mi Casa | Mi Casa Care Homes | Wichita, KS</title>
+  <meta name="description" content="Are you a performer, entertainer, or volunteer? Apply to bring joy to the residents of Mi Casa Care Homes, a licensed Home Plus elder care facility in Wichita, KS and Towanda, Kansas." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ===== PERFORMER APPLICATION PAGE STYLES ===== */
+
+    .app-form { max-width: 860px; }
+
+    .form-section {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .form-section-title {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brown);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--brown-light);
+    }
+
+    .form-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { margin-bottom: 1rem; }
+    .form-group:last-child { margin-bottom: 0; }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .form-group label .req { color: #C0392B; margin-left: 2px; }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1.5px solid #D4C9B8;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--cream);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--brown);
+      box-shadow: 0 0 0 3px rgba(139,111,71,0.15);
+      background: var(--white);
+    }
+    .form-group input.error,
+    .form-group select.error,
+    .form-group textarea.error { border-color: #C0392B; }
+
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A5A5A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.85rem center;
+      padding-right: 2.5rem;
+    }
+
+    .field-error {
+      display: none;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      color: #C0392B;
+      margin-top: 0.25rem;
+    }
+    .field-error.visible { display: block; }
+
+    .radio-group,
+    .check-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.35rem;
+    }
+    .radio-group label,
+    .check-group label {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--text);
+      cursor: pointer;
+      margin: 0;
+    }
+    .radio-group input[type="radio"],
+    .check-group input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      -webkit-appearance: auto;
+      appearance: auto;
+      accent-color: var(--brown);
+      cursor: pointer;
+      flex-shrink: 0;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      background: none;
+    }
+
+    .conditional-field { display: none; }
+    .conditional-field.visible { display: block; }
+
+    .form-submit-row { margin-top: 2rem; }
+    .btn-submit { padding: 1rem 3rem; font-size: 1rem; }
+
+    /* Sidebar */
+    .perform-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 4rem;
+      align-items: start;
+    }
+    .perform-sidebar { position: sticky; top: 100px; }
+    .sidebar-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.5rem;
+    }
+    .sidebar-card h3 {
+      color: var(--brown-dark);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+    .sidebar-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+    .sidebar-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar-card ul li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .sidebar-card ul li:last-child { border-bottom: none; }
+
+    @media (max-width: 900px) {
+      .perform-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .perform-sidebar { position: static; }
+      .form-grid-3 { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .form-grid-3 { grid-template-columns: 1fr; }
+      .form-grid-2 { grid-template-columns: 1fr; }
+      .btn-submit { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html"><img src="Mi Casa Logo copy.PNG" alt="Mi Casa Care Homes logo" />Mi Casa <span>Care Homes</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-item-has-dropdown">
+          <button class="nav-dropdown-toggle active" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown(this)">
+            Resources
+            <svg class="chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <ul class="nav-dropdown" role="menu">
+            <li><a href="about.html" role="menuitem">About Us</a></li>
+            <li><a href="home-plus.html" role="menuitem">What is Home Plus?</a></li>
+            <li><a href="faq.html" role="menuitem">FAQ</a></li>
+            <li><a href="perform.html" role="menuitem" class="active">Perform at Mi Casa</a></li>
+            <li><a href="blog.html" role="menuitem">Blog</a></li>
+          </ul>
+        </li>
+        <li class="nav-item-has-dropdown">
+          <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown(this)">
+            Gallery
+            <svg class="chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <ul class="nav-dropdown" role="menu">
+            <li><a href="gallery.html" role="menuitem">All Photos</a></li>
+            <li><a href="gallery-towanda.html" role="menuitem">Towanda House</a></li>
+            <li><a href="gallery-tyler.html" role="menuitem">Tyler House</a></li>
+          </ul>
+        </li>
+        <li><a href="schedule.html">Visit Us</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <header class="page-header" aria-labelledby="page-title">
+      <div class="container">
+        <span class="section-label" style="color:rgba(255,255,255,0.6);">Get Involved</span>
+        <h1 id="page-title">Perform at Mi Casa</h1>
+        <p>Share your gift with our residents. We welcome performers, entertainers, and volunteers of all kinds.</p>
+      </div>
+    </header>
+
+    <section>
+      <div class="container">
+        <div class="perform-layout">
+
+          <!-- MAIN FORM AREA -->
+          <div>
+            <p style="color:var(--text-muted);margin-bottom:2rem;font-size:1.05rem;">
+              We believe that joy, music, and human connection are as important to wellbeing as any medical care. If you're a performer, entertainer, or volunteer who'd like to share your gift with our residents, we'd love to hear from you. Complete the form below and our team will be in touch.
+              Fields marked <span style="color:#C0392B;">*</span> are required.
+            </p>
+
+            <form class="app-form" id="performer-form" name="performer-application" novalidate
+                  action="/success.html" method="POST" data-netlify="true">
+              <input type="hidden" name="form-name" value="performer-application" />
+
+              <!-- ── SECTION 1: BASIC INFORMATION ─────────────── -->
+              <div class="form-section">
+                <div class="form-section-title">Basic Information</div>
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label for="p-first-name">First Name <span class="req">*</span></label>
+                    <input type="text" id="p-first-name" name="first_name" autocomplete="given-name" required />
+                    <span class="field-error">Required.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="p-last-name">Last Name <span class="req">*</span></label>
+                    <input type="text" id="p-last-name" name="last_name" autocomplete="family-name" required />
+                    <span class="field-error">Required.</span>
+                  </div>
+                </div>
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label for="p-email">Email Address <span class="req">*</span></label>
+                    <input type="email" id="p-email" name="email" autocomplete="email" placeholder="you@example.com" required />
+                    <span class="field-error" id="p-email-error">Enter a valid email address.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="p-phone">Phone Number <span class="req">*</span></label>
+                    <input type="tel" id="p-phone" name="phone" autocomplete="tel" placeholder="(555) 000-0000" required />
+                    <span class="field-error" id="p-phone-error">Enter a valid phone number.</span>
+                  </div>
+                </div>
+                <div class="form-group" style="max-width:240px;">
+                  <label for="p-dob">Date of Birth <span class="req">*</span></label>
+                  <input type="date" id="p-dob" name="date_of_birth" required />
+                  <span class="field-error">Required.</span>
+                </div>
+                <div class="form-group">
+                  <label>Are you an individual performer or a group / organization? <span class="req">*</span></label>
+                  <div class="radio-group" id="p-performer-type-group">
+                    <label><input type="radio" name="performer_type" value="Individual Performer" required /> Individual Performer</label>
+                    <label><input type="radio" name="performer_type" value="Group or Organization" /> Group or Organization</label>
+                  </div>
+                  <span class="field-error" id="p-performer-type-error">Please select one.</span>
+                </div>
+                <div class="form-group conditional-field" id="group-name-wrap">
+                  <label for="p-group-name">Group or Organization Name <span class="req">*</span></label>
+                  <input type="text" id="p-group-name" name="group_name" />
+                  <span class="field-error">Required.</span>
+                </div>
+              </div>
+
+              <!-- ── SECTION 2: PERFORMANCE DETAILS ───────────── -->
+              <div class="form-section">
+                <div class="form-section-title">Performance Details</div>
+                <div class="form-group">
+                  <label>Type of Performance <span class="req">*</span> <span style="font-weight:400;color:var(--text-muted);">-- select all that apply</span></label>
+                  <div class="check-group" id="p-perf-type-group" style="flex-direction:column;gap:0.5rem;margin-top:0.5rem;">
+                    <label><input type="checkbox" name="performance_type" value="Music" /> Music</label>
+                    <label><input type="checkbox" name="performance_type" value="Magic" /> Magic</label>
+                    <label><input type="checkbox" name="performance_type" value="Animals" /> Animals</label>
+                    <label><input type="checkbox" name="performance_type" value="Crafts" /> Crafts</label>
+                    <label><input type="checkbox" name="performance_type" value="Storytelling" /> Storytelling</label>
+                    <label><input type="checkbox" name="performance_type" value="Other" id="perf-type-other" /> Other</label>
+                  </div>
+                  <span class="field-error" id="p-perf-type-error">Please select at least one.</span>
+                </div>
+                <div class="form-group conditional-field" id="other-type-wrap">
+                  <label for="p-other-type">Please describe your performance type <span class="req">*</span></label>
+                  <input type="text" id="p-other-type" name="other_performance_type" placeholder="e.g. Dance, Comedy, Poetry..." />
+                  <span class="field-error">Required.</span>
+                </div>
+                <div class="form-group">
+                  <label for="p-act-description">Description of Your Act or Program <span class="req">*</span></label>
+                  <textarea id="p-act-description" name="act_description" placeholder="Tell us about what you do and what a typical visit would look like for our residents. Feel free to include links to any social media pages, videos, or websites where we can learn more." style="min-height:120px;" required></textarea>
+                  <span class="field-error">Required.</span>
+                </div>
+                <div class="form-group">
+                  <label>Have you performed at an elder care or senior living facility before? <span class="req">*</span></label>
+                  <div class="radio-group" id="p-elder-exp-group">
+                    <label><input type="radio" name="elder_care_experience" value="Yes" required /> Yes</label>
+                    <label><input type="radio" name="elder_care_experience" value="No" /> No</label>
+                  </div>
+                  <span class="field-error" id="p-elder-exp-error">Please select one.</span>
+                </div>
+              </div>
+
+              <!-- ── SECTION 3: LOGISTICS ──────────────────────── -->
+              <div class="form-section">
+                <div class="form-section-title">Logistics</div>
+                <div class="form-group">
+                  <label for="p-availability">Availability and Preferred Days / Times <span class="req">*</span></label>
+                  <textarea id="p-availability" name="availability" placeholder="e.g. Weekday afternoons, Saturday mornings, flexible on timing..." required></textarea>
+                  <span class="field-error">Required.</span>
+                </div>
+                <div class="form-group">
+                  <label>Do you charge a fee or are you volunteering your time? <span class="req">*</span></label>
+                  <div class="radio-group" id="p-fee-group">
+                    <label><input type="radio" name="fee_or_volunteer" value="Volunteering" required /> Volunteering my time</label>
+                    <label><input type="radio" name="fee_or_volunteer" value="Fee" /> I charge a fee</label>
+                  </div>
+                  <span class="field-error" id="p-fee-error">Please select one.</span>
+                </div>
+                <div class="form-group conditional-field" id="rate-wrap">
+                  <label for="p-rate">Your Rate <span class="req">*</span></label>
+                  <input type="text" id="p-rate" name="rate" placeholder="e.g. $150 per visit, $75/hr..." />
+                  <span class="field-error">Required.</span>
+                </div>
+              </div>
+
+              <!-- ── SECTION 4: ADDITIONAL NOTES ──────────────── -->
+              <div class="form-section" style="border-bottom:none;padding-bottom:0;margin-bottom:0;">
+                <div class="form-section-title">Additional Notes</div>
+                <div class="form-group">
+                  <label for="p-notes">Message or Additional Notes <span style="font-weight:400;color:var(--text-muted);">(optional)</span></label>
+                  <textarea id="p-notes" name="notes" style="min-height:120px;" placeholder="Anything else you'd like us to know: special equipment, setup needs, questions, etc."></textarea>
+                </div>
+              </div>
+
+              <div class="form-submit-row">
+                <button type="submit" class="btn btn-primary btn-submit" id="performer-submit-btn">Submit Application</button>
+              </div>
+
+            </form>
+          </div>
+
+          <!-- SIDEBAR -->
+          <aside class="perform-sidebar" aria-label="Program information">
+            <div class="sidebar-card">
+              <h3>What We Welcome</h3>
+              <ul>
+                <li>Live music and singing</li>
+                <li>Magic and illusion</li>
+                <li>Therapy and companion animals</li>
+                <li>Arts and crafts instruction</li>
+                <li>Storytelling and reading aloud</li>
+                <li>Dance and movement</li>
+                <li>And much more</li>
+              </ul>
+            </div>
+            <div class="sidebar-card">
+              <h3>What to Expect</h3>
+              <p>Our residents enjoy small, intimate performances in a home-like setting. The group is typically small, which makes for a warm and personal experience for everyone in the room.</p>
+            </div>
+            <div class="sidebar-card">
+              <h3>Our Locations</h3>
+              <p style="margin-bottom:0.75rem;"><strong>Tyler House</strong><br>968 N Tyler Rd<br>Wichita, KS</p>
+              <p style="margin-bottom:0;"><strong>Towanda House</strong><br>521 Main St<br>Towanda, KS</p>
+            </div>
+            <div class="sidebar-card" style="background:var(--brown-light);border:1px solid var(--brown);">
+              <h3 style="color:var(--brown-dark);">Questions?</h3>
+              <p style="margin-bottom:0.75rem;">Feel free to reach out before you apply. We're happy to answer any questions about performing or volunteering at Mi Casa.</p>
+              <a href="tel:3167776655" style="font-family:var(--font-ui);font-size:0.88rem;font-weight:600;color:var(--brown-dark);">(316) 777-6655</a>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="nav-logo" href="index.html"><img src="Mi Casa Logo copy.PNG" alt="Mi Casa Care Homes logo" />Mi Casa <span style="color:var(--gold)">Care Homes</span></a>
+          <p>A licensed Home Plus facility in Kansas. A small, intimate setting. Regulated by KDADS.</p>
+          <a href="tel:3167776655" class="footer-phone">(316) 777-6655</a>
+          <address class="footer-addresses">
+            <div><strong>Tyler House</strong><br>968 N Tyler Rd, Wichita, KS</div>
+            <div><strong>Towanda House</strong><br>521 Main St, Towanda, KS</div>
+          </address>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="home-plus.html">What is Home Plus?</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="perform.html">Perform at Mi Casa</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="schedule.html">Visit Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://kdads.ks.gov" target="_blank" rel="noopener">KDADS (kdads.ks.gov)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Mi Casa Care Homes. All rights reserved.</span>
+        <span>Licensed by the Kansas Department for Aging and Disability Services</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script>
+    // ── Conditional field toggles ──────────────────────────────────
+    document.querySelectorAll('input[name="performer_type"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        var wrap = document.getElementById('group-name-wrap');
+        wrap.classList.toggle('visible', this.value === 'Group or Organization');
+        if (this.value !== 'Group or Organization') document.getElementById('p-group-name').value = '';
+      });
+    });
+
+    document.getElementById('perf-type-other').addEventListener('change', function() {
+      var wrap = document.getElementById('other-type-wrap');
+      wrap.classList.toggle('visible', this.checked);
+      if (!this.checked) document.getElementById('p-other-type').value = '';
+    });
+
+    document.querySelectorAll('input[name="fee_or_volunteer"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        var wrap = document.getElementById('rate-wrap');
+        wrap.classList.toggle('visible', this.value === 'Fee');
+        if (this.value !== 'Fee') document.getElementById('p-rate').value = '';
+      });
+    });
+
+    // ── Form validation ────────────────────────────────────────────
+    function validatePerformerForm() {
+      var valid = true;
+      var form = document.getElementById('performer-form');
+
+      // Required text inputs, textareas, and selects
+      form.querySelectorAll('input[required], select[required], textarea[required]').forEach(function(el) {
+        var err = el.nextElementSibling;
+        var ok = el.value.trim() !== '';
+        el.classList.toggle('error', !ok);
+        if (err && err.classList.contains('field-error')) err.classList.toggle('visible', !ok);
+        if (!ok) valid = false;
+      });
+
+      // Email format
+      var emailEl = document.getElementById('p-email');
+      var emailErr = document.getElementById('p-email-error');
+      if (emailEl.value.trim() !== '') {
+        var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim());
+        emailEl.classList.toggle('error', !emailOk);
+        emailErr.classList.toggle('visible', !emailOk);
+        if (!emailOk) valid = false;
+      }
+
+      // Phone format
+      var phoneEl = document.getElementById('p-phone');
+      var phoneErr = document.getElementById('p-phone-error');
+      if (phoneEl.value.trim() !== '') {
+        var phoneOk = /^[\d\s\-()+]{7,}$/.test(phoneEl.value.trim());
+        phoneEl.classList.toggle('error', !phoneOk);
+        phoneErr.classList.toggle('visible', !phoneOk);
+        if (!phoneOk) valid = false;
+      }
+
+      // Radio groups
+      [
+        ['p-performer-type-group', 'p-performer-type-error'],
+        ['p-elder-exp-group',      'p-elder-exp-error'],
+        ['p-fee-group',            'p-fee-error'],
+      ].forEach(function(pair) {
+        var group = document.getElementById(pair[0]);
+        var errEl = document.getElementById(pair[1]);
+        if (!group || !errEl) return;
+        var checked = group.querySelector('input[type="radio"]:checked');
+        errEl.classList.toggle('visible', !checked);
+        if (!checked) valid = false;
+      });
+
+      // At least one performance type checkbox required
+      var anyPerf = form.querySelector('input[name="performance_type"]:checked');
+      document.getElementById('p-perf-type-error').classList.toggle('visible', !anyPerf);
+      if (!anyPerf) valid = false;
+
+      // Conditional: group name required if group/org selected
+      var perfTypeChecked = form.querySelector('input[name="performer_type"]:checked');
+      if (perfTypeChecked && perfTypeChecked.value === 'Group or Organization') {
+        var groupEl = document.getElementById('p-group-name');
+        var groupErr = groupEl.nextElementSibling;
+        var groupOk = groupEl.value.trim() !== '';
+        groupEl.classList.toggle('error', !groupOk);
+        if (groupErr && groupErr.classList.contains('field-error')) groupErr.classList.toggle('visible', !groupOk);
+        if (!groupOk) valid = false;
+      }
+
+      // Conditional: other type required if "Other" checked
+      if (document.getElementById('perf-type-other').checked) {
+        var otherEl = document.getElementById('p-other-type');
+        var otherErr = otherEl.nextElementSibling;
+        var otherOk = otherEl.value.trim() !== '';
+        otherEl.classList.toggle('error', !otherOk);
+        if (otherErr && otherErr.classList.contains('field-error')) otherErr.classList.toggle('visible', !otherOk);
+        if (!otherOk) valid = false;
+      }
+
+      // Conditional: rate required if fee selected
+      var feeChecked = form.querySelector('input[name="fee_or_volunteer"]:checked');
+      if (feeChecked && feeChecked.value === 'Fee') {
+        var rateEl = document.getElementById('p-rate');
+        var rateErr = rateEl.nextElementSibling;
+        var rateOk = rateEl.value.trim() !== '';
+        rateEl.classList.toggle('error', !rateOk);
+        if (rateErr && rateErr.classList.contains('field-error')) rateErr.classList.toggle('visible', !rateOk);
+        if (!rateOk) valid = false;
+      }
+
+      return valid;
+    }
+
+    // ── Form submission ────────────────────────────────────────────
+    document.getElementById('performer-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!validatePerformerForm()) {
+        var firstErr = this.querySelector('.error');
+        if (firstErr) firstErr.focus();
+        return;
+      }
+      var btn = document.getElementById('performer-submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(this)).toString(),
+      })
+      .then(function(res) {
+        if (res.ok) {
+          window.location.href = '/success.html';
+        } else {
+          throw new Error();
+        }
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Submit Application';
+        alert('Something went wrong. Please try again or contact us directly.');
+      });
+    });
+  </script>
+  <script src="socials.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>

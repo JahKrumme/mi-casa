@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGC72RX2BR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HGC72RX2BR');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers | Mi Casa Care Homes | Wichita, KS Area</title>
+  <meta name="description" content="Join the Mi Casa Care Homes team in the Wichita, Kansas area. We are hiring CNAs, CMAs, and Nurses for our licensed Home Plus elder care facilities." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ===== CAREERS PAGE STYLES ===== */
+
+    .position-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--cream-dark);
+      margin-bottom: 2.5rem;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      padding: 0.85rem 2rem;
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .tab-btn:hover { color: var(--brown); }
+    .tab-btn.active {
+      color: var(--brown-dark);
+      border-bottom-color: var(--brown);
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Form layout */
+    .app-form { max-width: 860px; }
+
+    .form-section {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .form-section:last-of-type { border-bottom: none; margin-bottom: 0; }
+
+    .form-section-title {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brown);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--brown-light);
+    }
+
+    .form-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { margin-bottom: 1rem; }
+    .form-group:last-child { margin-bottom: 0; }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .form-group label .req { color: #C0392B; margin-left: 2px; }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1.5px solid #D4C9B8;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--cream);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--brown);
+      box-shadow: 0 0 0 3px rgba(139,111,71,0.15);
+      background: var(--white);
+    }
+    .form-group input.error,
+    .form-group select.error,
+    .form-group textarea.error { border-color: #C0392B; }
+
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A5A5A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.85rem center;
+      padding-right: 2.5rem;
+    }
+
+    .field-error {
+      display: none;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      color: #C0392B;
+      margin-top: 0.25rem;
+    }
+    .field-error.visible { display: block; }
+
+    /* Radio / Checkbox groups */
+    .radio-group,
+    .check-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.35rem;
+    }
+    .radio-group label,
+    .check-group label {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--text);
+      cursor: pointer;
+      margin: 0;
+    }
+    .radio-group input[type="radio"],
+    .check-group input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      -webkit-appearance: auto;
+      appearance: auto;
+      accent-color: var(--brown);
+      cursor: pointer;
+      flex-shrink: 0;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      background: none;
+    }
+
+    /* Repeating blocks (references, work history, education) */
+    .repeat-block {
+      background: var(--cream);
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .repeat-block-label {
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.85rem;
+    }
+
+    /* Felony conditional */
+    .felony-explain { display: none; margin-top: 1rem; }
+    .felony-explain.visible { display: block; }
+
+    /* Submit */
+    .form-submit-row { margin-top: 2rem; }
+    .btn-submit {
+      padding: 1rem 3rem;
+      font-size: 1rem;
+    }
+
+    /* Success */
+    .app-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .app-success.visible { display: block; }
+    .app-success .success-icon { display: flex; justify-content: center; margin-bottom: 1rem; color: var(--brown); }
+    .app-success h3 { color: var(--brown-dark); margin-bottom: 0.5rem; font-size: 1.4rem; }
+    .app-success p { color: var(--text-muted); }
+
+    /* Sidebar */
+    .careers-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 4rem;
+      align-items: start;
+    }
+    .careers-sidebar { position: sticky; top: 100px; }
+    .sidebar-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.5rem;
+    }
+    .sidebar-card h3 {
+      color: var(--brown-dark);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+    .sidebar-card p { font-size: 0.88rem; color: var(--text-muted); }
+    .position-badge {
+      display: inline-block;
+      background: var(--brown-light);
+      color: var(--brown-dark);
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .careers-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .careers-sidebar { position: static; }
+      .form-grid-3 { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .form-grid-3 { grid-template-columns: 1fr; }
+      .form-grid-2 { grid-template-columns: 1fr; }
+      .tab-btn { padding: 0.75rem 1.1rem; font-size: 0.85rem; }
+      .btn-submit { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html"><img src="Mi Casa Logo copy.PNG" alt="Mi Casa Care Homes logo" />Mi Casa <span>Care Homes</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-item-has-dropdown">
+          <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown(this)">
+            Resources
+            <svg class="chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <ul class="nav-dropdown" role="menu">
+            <li><a href="about.html" role="menuitem">About Us</a></li>
+            <li><a href="home-plus.html" role="menuitem">What is Home Plus?</a></li>
+            <li><a href="faq.html" role="menuitem">FAQ</a></li>
+            <li><a href="perform.html" role="menuitem">Perform at Mi Casa</a></li>
+            <li><a href="blog.html" role="menuitem">Blog</a></li>
+          </ul>
+        </li>
+        <li class="nav-item-has-dropdown">
+          <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown(this)">
+            Gallery
+            <svg class="chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <ul class="nav-dropdown" role="menu">
+            <li><a href="gallery.html" role="menuitem">All Photos</a></li>
+            <li><a href="gallery-towanda.html" role="menuitem">Towanda House</a></li>
+            <li><a href="gallery-tyler.html" role="menuitem">Tyler House</a></li>
+          </ul>
+        </li>
+        <li><a href="schedule.html">Visit Us</a></li>
+        <li><a href="careers.html" class="active">Careers</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <header class="page-header" aria-labelledby="page-title">
+      <div class="container">
+        <span class="section-label" style="color:rgba(255,255,255,0.6);">Join Our Team</span>
+        <h1 id="page-title">Careers at Mi Casa Care Homes</h1>
+        <p>We're looking for compassionate caregivers who believe in the dignity of home-like care.</p>
+      </div>
+    </header>
+
+    <section>
+      <div class="container">
+        <div class="careers-layout">
+
+          <!-- MAIN FORM AREA -->
+          <div>
+            <p style="color:var(--text-muted);margin-bottom:2rem;font-size:1.05rem;">
+              Select the position you're applying for below, then complete and submit the application form.
+              All fields marked <span style="color:#C0392B;">*</span> are required.
+            </p>
+
+            <!-- TABS -->
+            <div class="position-tabs" role="tablist" aria-label="Position selection">
+              <button class="tab-btn active" role="tab" aria-selected="true"  aria-controls="panel-cna"  id="tab-cna"  onclick="switchTab('cna')">CNA</button>
+              <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="panel-cma"  id="tab-cma"  onclick="switchTab('cma')">CMA</button>
+              <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="panel-nurse" id="tab-nurse" onclick="switchTab('nurse')">Nurse</button>
+            </div>
+
+            <!-- ==================== CNA FORM ==================== -->
+            <div class="tab-panel active" id="panel-cna" role="tabpanel" aria-labelledby="tab-cna">
+              <div class="app-success" id="success-cna" role="alert">
+                <div class="success-icon" aria-hidden="true"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                <h3>Application Submitted!</h3>
+                <p>Thank you for applying for the CNA position. We'll review your application and be in touch soon.</p>
+                <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Back to Home</a>
+              </div>
+              <form class="app-form" id="form-cna" name="apply-cna" novalidate
+                    action="/success.html"
+                    method="POST"
+                    data-netlify="true">
+                <input type="hidden" name="form-name" value="apply-cna" />
+                <input type="hidden" name="position" value="CNA" />
+                <!-- reuse macro below -->
+                <div data-form-body="cna"></div>
+              </form>
+            </div>
+
+            <!-- ==================== CMA FORM ==================== -->
+            <div class="tab-panel" id="panel-cma" role="tabpanel" aria-labelledby="tab-cma">
+              <div class="app-success" id="success-cma" role="alert">
+                <div class="success-icon" aria-hidden="true"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                <h3>Application Submitted!</h3>
+                <p>Thank you for applying for the CMA position. We'll review your application and be in touch soon.</p>
+                <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Back to Home</a>
+              </div>
+              <form class="app-form" id="form-cma" name="apply-cma" novalidate
+                    action="/success.html"
+                    method="POST"
+                    data-netlify="true">
+                <input type="hidden" name="form-name" value="apply-cma" />
+                <input type="hidden" name="position" value="CMA" />
+                <div data-form-body="cma"></div>
+              </form>
+            </div>
+
+            <!-- ==================== NURSE FORM ==================== -->
+            <div class="tab-panel" id="panel-nurse" role="tabpanel" aria-labelledby="tab-nurse">
+              <div class="app-success" id="success-nurse" role="alert">
+                <div class="success-icon" aria-hidden="true"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                <h3>Application Submitted!</h3>
+                <p>Thank you for applying for the Nurse position. We'll review your application and be in touch soon.</p>
+                <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Back to Home</a>
+              </div>
+              <form class="app-form" id="form-nurse" name="apply-nurse" novalidate
+                    action="/success.html"
+                    method="POST"
+                    data-netlify="true">
+                <input type="hidden" name="form-name" value="apply-nurse" />
+                <input type="hidden" name="position" value="Nurse" />
+                <div data-form-body="nurse"></div>
+              </form>
+            </div>
+
+          </div>
+
+          <!-- SIDEBAR -->
+          <aside class="careers-sidebar" aria-label="Position information">
+            <div class="sidebar-card">
+              <h3>Open Positions</h3>
+              <div style="margin-bottom:0.75rem;">
+                <span class="position-badge">CNA</span>
+                <p>Certified Nursing Assistant. Help residents with daily care and personal needs.</p>
+              </div>
+              <div style="margin-bottom:0.75rem;">
+                <span class="position-badge">CMA</span>
+                <p>Certified Medication Aide. Handle medication administration and tracking.</p>
+              </div>
+              <div>
+                <span class="position-badge">Nurse</span>
+                <p>Licensed Nurse (RN or LPN). Oversee care plans and provide clinical support.</p>
+              </div>
+            </div>
+            <div class="sidebar-card">
+              <h3>Why Work Here?</h3>
+              <p>Small team, real work. In a small, intimate setting, you actually get to know the people you're caring for.</p>
+            </div>
+            <div class="sidebar-card" style="background:var(--brown-light);border:1px solid var(--brown);">
+              <h3 style="color:var(--brown-dark);">Questions?</h3>
+              <p>Feel free to reach out before you apply. We're happy to answer questions about the role or the home.</p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="nav-logo" href="index.html"><img src="Mi Casa Logo copy.PNG" alt="Mi Casa Care Homes logo" />Mi Casa <span style="color:var(--gold)">Care Homes</span></a>
+          <p>A licensed Home Plus facility in Kansas. A small, intimate setting. Regulated by KDADS.</p>
+          <a href="tel:3167776655" class="footer-phone">(316) 777-6655</a>
+          <address class="footer-addresses">
+            <div><strong>Tyler House</strong><br>968 N Tyler Rd, Wichita, KS</div>
+            <div><strong>Towanda House</strong><br>521 Main St, Towanda, KS</div>
+          </address>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="home-plus.html">What is Home Plus?</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="perform.html">Perform at Mi Casa</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="schedule.html">Visit Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://kdads.ks.gov" target="_blank" rel="noopener">KDADS (kdads.ks.gov)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Mi Casa Care Homes. All rights reserved.</span>
+        <span>Licensed by the Kansas Department for Aging and Disability Services</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script>
+    // ===== BUILD FORM BODIES =====
+    function buildFormHTML(id) {
+      return `
+        <!-- PERSONAL DATA -->
+        <div class="form-section">
+          <div class="form-section-title">Personal Information</div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="${id}-first-name">First Name <span class="req">*</span></label>
+              <input type="text" id="${id}-first-name" name="first_name" autocomplete="given-name" required />
+              <span class="field-error">Required.</span>
+            </div>
+            <div class="form-group">
+              <label for="${id}-last-name">Last Name <span class="req">*</span></label>
+              <input type="text" id="${id}-last-name" name="last_name" autocomplete="family-name" required />
+              <span class="field-error">Required.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="${id}-address">Street Address <span class="req">*</span></label>
+            <input type="text" id="${id}-address" name="address" autocomplete="street-address" required />
+            <span class="field-error">Required.</span>
+          </div>
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label for="${id}-city">City <span class="req">*</span></label>
+              <input type="text" id="${id}-city" name="city" autocomplete="address-level2" required />
+              <span class="field-error">Required.</span>
+            </div>
+            <div class="form-group">
+              <label for="${id}-state">State <span class="req">*</span></label>
+              <input type="text" id="${id}-state" name="state" autocomplete="address-level1" maxlength="2" placeholder="KS" required />
+              <span class="field-error">Required.</span>
+            </div>
+            <div class="form-group">
+              <label for="${id}-zip">ZIP Code <span class="req">*</span></label>
+              <input type="text" id="${id}-zip" name="zip" autocomplete="postal-code" inputmode="numeric" maxlength="10" required />
+              <span class="field-error">Required.</span>
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="${id}-phone">Phone Number <span class="req">*</span></label>
+              <input type="tel" id="${id}-phone" name="phone" autocomplete="tel" placeholder="(555) 000-0000" required />
+              <span class="field-error">Enter a valid phone number.</span>
+            </div>
+            <div class="form-group">
+              <label for="${id}-start-date">Date You Can Start <span class="req">*</span></label>
+              <input type="date" id="${id}-start-date" name="start_date" required />
+              <span class="field-error">Required.</span>
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="${id}-salary">Desired Salary / Wage <span class="req">*</span></label>
+              <input type="text" id="${id}-salary" name="desired_salary" placeholder="e.g. $18/hr or $40,000/yr" required />
+              <span class="field-error">Required.</span>
+            </div>
+            <div class="form-group">
+              <label>High School Diploma or GED? <span class="req">*</span></label>
+              <div class="radio-group" id="${id}-diploma-group">
+                <label><input type="radio" name="${id}_diploma" value="Yes" required /> Yes</label>
+                <label><input type="radio" name="${id}_diploma" value="No" /> No</label>
+              </div>
+              <span class="field-error" id="${id}-diploma-error">Please select one.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- POSITION INFORMATION -->
+        <div class="form-section">
+          <div class="form-section-title">Position Information</div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>Hours <span class="req">*</span></label>
+              <div class="radio-group" id="${id}-hours-group">
+                <label><input type="radio" name="${id}_hours" value="Full Time" required /> Full Time</label>
+                <label><input type="radio" name="${id}_hours" value="Part Time" /> Part Time</label>
+              </div>
+              <span class="field-error" id="${id}-hours-error">Please select one.</span>
+            </div>
+            <div class="form-group">
+              <label>Shift <span class="req">*</span></label>
+              <div class="radio-group" id="${id}-shift-group">
+                <label><input type="radio" name="${id}_shift" value="Days" required /> Days</label>
+                <label><input type="radio" name="${id}_shift" value="Nights" /> Nights</label>
+                <label><input type="radio" name="${id}_shift" value="Either" /> Either</label>
+              </div>
+              <span class="field-error" id="${id}-shift-error">Please select one.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="check-group">
+              <label>
+                <input type="checkbox" name="${id}_work_auth" id="${id}-work-auth" value="Yes" />
+                I am authorized to work in the United States on an unrestricted basis <span class="req">*</span>
+              </label>
+            </div>
+            <span class="field-error" id="${id}-auth-error">You must confirm work authorization to apply.</span>
+          </div>
+        </div>
+
+        <!-- FELONY -->
+        <div class="form-section">
+          <div class="form-section-title">Background</div>
+          <div class="form-group">
+            <label>Have you ever been convicted of a felony? <span class="req">*</span></label>
+            <div class="radio-group" id="${id}-felony-group">
+              <label><input type="radio" name="${id}_felony" value="No"  required onchange="toggleFelony('${id}', false)" /> No</label>
+              <label><input type="radio" name="${id}_felony" value="Yes"          onchange="toggleFelony('${id}', true)"  /> Yes</label>
+            </div>
+            <span class="field-error" id="${id}-felony-error">Please select one.</span>
+          </div>
+          <div class="felony-explain" id="${id}-felony-explain">
+            <div class="form-group">
+              <label for="${id}-felony-detail">Please explain the conviction(s)</label>
+              <textarea id="${id}-felony-detail" name="${id}_felony_explanation" placeholder="A conviction does not automatically disqualify you. Please provide details…"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUALIFICATIONS / EDUCATION -->
+        <div class="form-section">
+          <div class="form-section-title">Education &amp; Qualifications</div>
+          <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">List schools, colleges, vocational programs, certifications, or any other relevant training.</p>
+          <div class="repeat-block">
+            <div class="repeat-block-label">Education / Program 1</div>
+            <div class="form-grid-2">
+              <div class="form-group"><label for="${id}-edu1-name">School / Institution</label><input type="text" id="${id}-edu1-name" name="${id}_edu1_name" /></div>
+              <div class="form-group"><label for="${id}-edu1-degree">Degree / Program / Certificate</label><input type="text" id="${id}-edu1-degree" name="${id}_edu1_degree" /></div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-group"><label for="${id}-edu1-years">Years Attended</label><input type="text" id="${id}-edu1-years" name="${id}_edu1_years" placeholder="e.g. 2018–2020" /></div>
+              <div class="form-group"><label for="${id}-edu1-graduated">Graduated / Completed?</label><select id="${id}-edu1-graduated" name="${id}_edu1_graduated"><option value="">Select…</option><option>Yes</option><option>No</option><option>In Progress</option></select></div>
+            </div>
+          </div>
+          <div class="repeat-block">
+            <div class="repeat-block-label">Education / Program 2 (optional)</div>
+            <div class="form-grid-2">
+              <div class="form-group"><label for="${id}-edu2-name">School / Institution</label><input type="text" id="${id}-edu2-name" name="${id}_edu2_name" /></div>
+              <div class="form-group"><label for="${id}-edu2-degree">Degree / Program / Certificate</label><input type="text" id="${id}-edu2-degree" name="${id}_edu2_degree" /></div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-group"><label for="${id}-edu2-years">Years Attended</label><input type="text" id="${id}-edu2-years" name="${id}_edu2_years" placeholder="e.g. 2021–2022" /></div>
+              <div class="form-group"><label for="${id}-edu2-graduated">Graduated / Completed?</label><select id="${id}-edu2-graduated" name="${id}_edu2_graduated"><option value="">Select…</option><option>Yes</option><option>No</option><option>In Progress</option></select></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SPECIAL SKILLS -->
+        <div class="form-section">
+          <div class="form-section-title">Special Skills</div>
+          <div class="form-group">
+            <label for="${id}-skills">List any special skills relevant to this position</label>
+            <textarea id="${id}-skills" name="special_skills" placeholder="e.g. CPR certified, wound care, dementia care experience, bilingual (Spanish/English)…"></textarea>
+          </div>
+        </div>
+
+        <!-- REFERENCES -->
+        <div class="form-section">
+          <div class="form-section-title">References</div>
+          <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">Please list three professional or personal references (not family members).</p>
+          ${[1,2,3].map(n => `
+          <div class="repeat-block">
+            <div class="repeat-block-label">Reference ${n}</div>
+            <div class="form-grid-3">
+              <div class="form-group"><label for="${id}-ref${n}-name">Full Name</label><input type="text" id="${id}-ref${n}-name" name="${id}_ref${n}_name" /></div>
+              <div class="form-group"><label for="${id}-ref${n}-phone">Phone Number</label><input type="tel" id="${id}-ref${n}-phone" name="${id}_ref${n}_phone" /></div>
+              <div class="form-group"><label for="${id}-ref${n}-rel">Relationship</label><input type="text" id="${id}-ref${n}-rel" name="${id}_ref${n}_relationship" placeholder="e.g. Former Supervisor" /></div>
+            </div>
+          </div>`).join('')}
+        </div>
+
+        <!-- WORK HISTORY -->
+        <div class="form-section">
+          <div class="form-section-title">Work History</div>
+          <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">List your most recent positions first.</p>
+          ${[1,2,3].map(n => `
+          <div class="repeat-block">
+            <div class="repeat-block-label">Position ${n}${n === 1 ? ' (Most Recent)' : ' (optional)'}</div>
+            <div class="form-grid-2">
+              <div class="form-group"><label for="${id}-job${n}-employer">Employer / Facility</label><input type="text" id="${id}-job${n}-employer" name="${id}_job${n}_employer" /></div>
+              <div class="form-group"><label for="${id}-job${n}-title">Your Job Title</label><input type="text" id="${id}-job${n}-title" name="${id}_job${n}_title" /></div>
+            </div>
+            <div class="form-grid-3">
+              <div class="form-group"><label for="${id}-job${n}-from">From (date)</label><input type="text" id="${id}-job${n}-from" name="${id}_job${n}_from" placeholder="MM/YYYY" /></div>
+              <div class="form-group"><label for="${id}-job${n}-to">To (date)</label><input type="text" id="${id}-job${n}-to" name="${id}_job${n}_to" placeholder="MM/YYYY or Present" /></div>
+              <div class="form-group"><label for="${id}-job${n}-phone">Employer Phone</label><input type="tel" id="${id}-job${n}-phone" name="${id}_job${n}_phone" /></div>
+            </div>
+            <div class="form-group"><label for="${id}-job${n}-reason">Reason for Leaving</label><input type="text" id="${id}-job${n}-reason" name="${id}_job${n}_reason_for_leaving" /></div>
+          </div>`).join('')}
+        </div>
+
+        <!-- SUBMIT -->
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-primary btn-submit">Submit Application</button>
+        </div>
+      `;
+    }
+
+    // Inject form HTML into each panel
+    ['cna','cma','nurse'].forEach(id => {
+      const el = document.querySelector(`[data-form-body="${id}"]`);
+      if (el) el.outerHTML = buildFormHTML(id);
+    });
+
+    // Set min date for start date fields
+    const today = new Date().toISOString().split('T')[0];
+    document.querySelectorAll('[id$="-start-date"]').forEach(el => el.setAttribute('min', today));
+
+    // ===== TAB SWITCHING =====
+    function switchTab(id) {
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      document.getElementById('tab-' + id).setAttribute('aria-selected', 'true');
+      document.getElementById('panel-' + id).classList.add('active');
+    }
+
+    // ===== FELONY TOGGLE =====
+    function toggleFelony(id, show) {
+      const box = document.getElementById(id + '-felony-explain');
+      if (box) box.classList.toggle('visible', show);
+    }
+
+    // ===== FORM VALIDATION & SUBMIT =====
+    function validateForm(id) {
+      let valid = true;
+      const form = document.getElementById('form-' + id);
+
+      // Required text/date/tel inputs and selects
+      form.querySelectorAll('input[required], select[required]').forEach(el => {
+        const err = el.nextElementSibling;
+        const ok = el.value.trim() !== '';
+        el.classList.toggle('error', !ok);
+        if (err && err.classList.contains('field-error')) err.classList.toggle('visible', !ok);
+        if (!ok) valid = false;
+      });
+
+      // Radio groups
+      [
+        [id + '-diploma-group',  id + '-diploma-error'],
+        [id + '-hours-group',    id + '-hours-error'],
+        [id + '-shift-group',    id + '-shift-error'],
+        [id + '-felony-group',   id + '-felony-error'],
+      ].forEach(([groupId, errId]) => {
+        const group = document.getElementById(groupId);
+        const errEl = document.getElementById(errId);
+        if (!group || !errEl) return;
+        const checked = group.querySelector('input[type="radio"]:checked');
+        errEl.classList.toggle('visible', !checked);
+        if (!checked) valid = false;
+      });
+
+      // Work auth checkbox
+      const authBox  = document.getElementById(id + '-work-auth');
+      const authErr  = document.getElementById(id + '-auth-error');
+      if (authBox && authErr) {
+        authErr.classList.toggle('visible', !authBox.checked);
+        if (!authBox.checked) valid = false;
+      }
+
+      return valid;
+    }
+
+    ['cna','cma','nurse'].forEach(id => {
+      // Attach submit after DOM is ready (forms are injected above)
+      setTimeout(() => {
+        const form = document.getElementById('form-' + id);
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          if (!validateForm(id)) {
+            const firstErr = form.querySelector('.error, input:invalid');
+            if (firstErr) firstErr.focus();
+            return;
+          }
+          const btn = form.querySelector('.btn-submit');
+          btn.disabled = true;
+          btn.textContent = 'Submitting…';
+          fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(new FormData(form)).toString(),
+          })
+          .then(function(res) {
+            if (res.ok) {
+              window.location.href = '/success.html';
+            } else {
+              throw new Error();
+            }
+          })
+          .catch(function() {
+            btn.disabled = false;
+            btn.textContent = 'Submit Application';
+            alert('Something went wrong. Please try again.');
+          });
+        });
+      }, 0);
+    });
+  </script>
+  <script src="socials.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>

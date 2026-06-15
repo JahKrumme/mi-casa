@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGC72RX2BR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HGC72RX2BR');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Mi Casa Care Homes</title>
+  <meta name="description" content="Mi Casa Care Homes blog articles on elder care options for Kansas families." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html"><img src="Mi Casa Logo copy.PNG" alt="Mi Casa Care Homes logo" />Mi Casa <span>Care Homes</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-item-has-dropdown">
+          <button class="nav-dropdown-toggle active" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown(this)">
+            Resources
+            <svg class="chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <ul class="nav-dropdown" role="menu">
+            <li><a href="about.html" role="menuitem">About Us</a></li>
+            <li><a href="home-plus.html" role="menuitem">What is Home Plus?</a></li>
+            <li><a href="faq.html" role="menuitem">FAQ</a></li>
+            <li><a href="perform.html" role="menuitem">Perform at Mi Casa</a></li>
+            <li><a href="blog.html" role="menuitem" class="active">Blog</a></li>
+          </ul>
+        </li>
+        <li class="nav-item-has-dropdown">
+          <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown(this)">
+            Gallery
+            <svg class="chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <ul class="nav-dropdown" role="menu">
+            <li><a href="gallery.html" role="menuitem">All Photos</a></li>
+            <li><a href="gallery-towanda.html" role="menuitem">Towanda House</a></li>
+            <li><a href="gallery-tyler.html" role="menuitem">Tyler House</a></li>
+          </ul>
+        </li>
+        <li><a href="schedule.html">Visit Us</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <header class="page-header" aria-labelledby="article-title">
+      <div class="container">
+        <span class="section-label" id="post-label" style="color:rgba(255,255,255,0.6);">Blog</span>
+        <h1 id="article-title"></h1>
+      </div>
+    </header>
+
+    <section style="background:var(--cream);">
+      <div class="container">
+        <div class="blog-post-wrap">
+
+          <a href="blog.html" class="blog-back-link" aria-label="Back to Blog">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            Back to Blog
+          </a>
+
+          <div id="post-loading" aria-live="polite">
+            <p style="color:var(--text-muted);font-family:var(--font-ui);">Loading...</p>
+          </div>
+
+          <div id="post-content" hidden>
+            <div id="post-meta" class="blog-post-meta"></div>
+            <article id="post-body" class="blog-post-body" aria-label="Article content"></article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-labelledby="post-cta-heading">
+      <div class="container" style="max-width:700px;text-align:center;">
+        <span class="section-label" style="color:rgba(255,255,255,0.6);">See It for Yourself</span>
+        <h2 id="post-cta-heading">Come Visit One of Our Homes</h2>
+        <p>A walkthrough tells you more than any article can. Come meet the team at Tyler House or Towanda House and see the difference a smaller, personal setting makes.</p>
+        <a href="schedule.html" class="btn btn-white" style="font-size:1.05rem;padding:1rem 2.5rem;">Schedule a Visit</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="nav-logo" href="index.html"><img src="Mi Casa Logo copy.PNG" alt="Mi Casa Care Homes logo" />Mi Casa <span style="color:var(--gold)">Care Homes</span></a>
+          <p>A licensed Home Plus facility in Kansas. A small, intimate setting. Regulated by KDADS.</p>
+          <a href="tel:3167776655" class="footer-phone">(316) 777-6655</a>
+          <address class="footer-addresses">
+            <div><strong>Tyler House</strong><br>968 N Tyler Rd, Wichita, KS</div>
+            <div><strong>Towanda House</strong><br>521 Main St, Towanda, KS</div>
+          </address>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="home-plus.html">What is Home Plus?</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="perform.html">Perform at Mi Casa</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="schedule.html">Visit Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://kdads.ks.gov" target="_blank" rel="noopener">KDADS (kdads.ks.gov)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Mi Casa Care Homes. All rights reserved.</span>
+        <span>Licensed by the Kansas Department for Aging and Disability Services</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script src="https://unpkg.com/marked@9/marked.min.js"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    var slug = new URLSearchParams(window.location.search).get('post');
+
+    if (!slug || !/^[\w-]+$/.test(slug)) {
+      render404();
+      return;
+    }
+
+    function parseFrontMatter(raw) {
+      var m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
+      if (!m) return { data: {}, body: raw };
+      var body = raw.slice(m[0].length);
+      var data = {};
+      m[1].split('\n').forEach(function (line) {
+        var idx = line.indexOf(':');
+        if (idx < 0) return;
+        var key = line.slice(0, idx).trim();
+        var val = line.slice(idx + 1).trim();
+        if (val.length > 1 &&
+            ((val[0] === '"' && val[val.length - 1] === '"') ||
+             (val[0] === "'" && val[val.length - 1] === "'"))) {
+          val = val.slice(1, -1);
+        }
+        data[key] = val;
+      });
+      return { data: data, body: body };
+    }
+
+    function formatDate(str) {
+      if (!str) return '';
+      var p = (str + '').split('-');
+      if (p.length < 3) return str;
+      var months = ['January','February','March','April','May','June','July',
+                    'August','September','October','November','December'];
+      return months[parseInt(p[1], 10) - 1] + ' ' + parseInt(p[2], 10) + ', ' + p[0];
+    }
+
+    function esc(s) {
+      return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function render404() {
+      document.getElementById('article-title').textContent = 'Post Not Found';
+      document.getElementById('post-loading').innerHTML =
+        '<p style="color:var(--text-muted);font-family:var(--font-ui);">This post could not be found. <a href="blog.html">Back to Blog &rarr;</a></p>';
+    }
+
+    fetch('posts/' + slug + '.md')
+      .then(function (res) {
+        if (!res.ok) throw new Error('not found');
+        return res.text();
+      })
+      .then(function (raw) {
+        var p = parseFrontMatter(raw);
+        var d = p.data;
+
+        document.title = (d.title ? d.title + ' | ' : '') + 'Mi Casa Care Homes';
+        var descEl = document.querySelector('meta[name="description"]');
+        if (descEl && d.excerpt) descEl.setAttribute('content', d.excerpt);
+
+        if (d.category) document.getElementById('post-label').textContent = d.category;
+        document.getElementById('article-title').textContent = d.title || 'Untitled';
+
+        var metaHtml = '';
+        if (d.category) {
+          metaHtml += '<span class="blog-tag">' + esc(d.category) + '</span>';
+          metaHtml += '<span class="sep" aria-hidden="true">&middot;</span>';
+        }
+        if (d.date) {
+          metaHtml += '<time datetime="' + esc(d.date) + '">' + esc(formatDate(d.date)) + '</time>';
+          metaHtml += '<span class="sep" aria-hidden="true">&middot;</span>';
+        }
+        metaHtml += '<span>By Mi Casa Care Homes</span>';
+        document.getElementById('post-meta').innerHTML = metaHtml;
+
+        var bodyHtml = '';
+        if (d.featured_image) {
+          bodyHtml += '<img src="' + esc(d.featured_image) + '" alt="' + esc(d.title || '') + '" style="width:100%;border-radius:var(--radius);margin-bottom:2rem;" loading="eager" />';
+        }
+        bodyHtml += marked.parse(p.body);
+        document.getElementById('post-body').innerHTML = bodyHtml;
+
+        document.getElementById('post-loading').style.display = 'none';
+        document.getElementById('post-content').hidden = false;
+      })
+      .catch(render404);
+  }());
+  </script>
+  <script src="socials.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>

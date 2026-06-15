@@ -1,0 +1,3 @@
+[build]
+  command = "node generate-blog-index.js"
+  publish = "."

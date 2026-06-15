@@ -1,0 +1,28 @@
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME  # Replace with your GitHub repo (e.g. jsmith/mi-casa-care-homes)
+  branch: main  # Replace if your default branch is named differently
+
+media_folder: images
+public_folder: /images
+
+collections:
+  - name: blog
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - label: Publish Date
+        name: date
+        widget: datetime
+        format: YYYY-MM-DD
+        date_format: YYYY-MM-DD
+        time_format: false
+        picker_utc: true
+      - { label: Category Tag, name: category, widget: string, default: "Care Guide", hint: "e.g. Care Guide, Home Plus, Family Resources" }
+      - { label: Excerpt, name: excerpt, widget: text, hint: "Short summary shown on the blog index card (1-2 sentences)" }
+      - { label: Featured Image, name: featured_image, widget: image, required: false, hint: "Optional. Shown on the blog index card and at the top of the post." }
+      - { label: Body, name: body, widget: markdown }

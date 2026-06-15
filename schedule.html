@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGC72RX2BR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HGC72RX2BR');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule a Visit | Mi Casa Care Homes | Wichita, KS</title>
+  <meta name="description" content="Schedule an in-person tour at Mi Casa Care Homes, a licensed Home Plus elder care facility near Wichita, Kansas. We serve the Wichita and Towanda, KS areas. Reply within 1 business day." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html"><img src="Mi Casa Logo copy.PNG" alt="Mi Casa Care Homes logo" />Mi Casa <span>Care Homes</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-item-has-dropdown">
+          <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown(this)">
+            Resources
+            <svg class="chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <ul class="nav-dropdown" role="menu">
+            <li><a href="about.html" role="menuitem">About Us</a></li>
+            <li><a href="home-plus.html" role="menuitem">What is Home Plus?</a></li>
+            <li><a href="faq.html" role="menuitem">FAQ</a></li>
+            <li><a href="perform.html" role="menuitem">Perform at Mi Casa</a></li>
+            <li><a href="blog.html" role="menuitem">Blog</a></li>
+          </ul>
+        </li>
+        <li class="nav-item-has-dropdown">
+          <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown(this)">
+            Gallery
+            <svg class="chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="2 4 6 8 10 4"/></svg>
+          </button>
+          <ul class="nav-dropdown" role="menu">
+            <li><a href="gallery.html" role="menuitem">All Photos</a></li>
+            <li><a href="gallery-towanda.html" role="menuitem">Towanda House</a></li>
+            <li><a href="gallery-tyler.html" role="menuitem">Tyler House</a></li>
+          </ul>
+        </li>
+        <li><a href="schedule.html" class="active">Visit Us</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <header class="page-header" aria-labelledby="page-title">
+      <div class="container">
+        <span class="section-label" style="color:rgba(255,255,255,0.6);">Come See Our Home</span>
+        <h1 id="page-title">Schedule a Visit</h1>
+        <p>Tour our elder care home in Wichita, KS or near Towanda, Kansas. Fill out the form and a member of our team will be in touch within 1 business day.</p>
+      </div>
+    </header>
+
+    <section aria-labelledby="form-heading">
+      <div class="container">
+        <div class="schedule-layout">
+
+          <!-- FORM -->
+          <div>
+            <div class="form-card">
+              <h2 id="form-heading">Request a Tour or Consultation</h2>
+              <p class="form-subtitle">All fields marked <span style="color:#C0392B;">*</span> are required.</p>
+
+              <!-- SUCCESS STATE -->
+              <div class="form-success" id="form-success" role="alert" aria-live="polite">
+                <div class="success-icon" aria-hidden="true"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                <h3>Thank You!</h3>
+                <p>A member of our team will be in touch within 1 business day to confirm your visit.</p>
+                <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Back to Home</a>
+              </div>
+
+              <!-- FORM -->
+              <form id="visit-form" name="schedule-visit" novalidate
+                    action="/success.html"
+                    method="POST"
+                    aria-label="Schedule a visit form"
+                    data-netlify="true">
+                <input type="hidden" name="form-name" value="schedule-visit" />
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="first-name">First Name <span class="required" aria-hidden="true">*</span></label>
+                    <input type="text" id="first-name" name="first_name" autocomplete="given-name" required aria-required="true" />
+                    <span class="field-error" id="first-name-error" role="alert">Please enter your first name.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="last-name">Last Name <span class="required" aria-hidden="true">*</span></label>
+                    <input type="text" id="last-name" name="last_name" autocomplete="family-name" required aria-required="true" />
+                    <span class="field-error" id="last-name-error" role="alert">Please enter your last name.</span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="phone">Phone Number <span class="required" aria-hidden="true">*</span></label>
+                    <input type="tel" id="phone" name="phone" autocomplete="tel" required aria-required="true" placeholder="(555) 000-0000" />
+                    <span class="field-error" id="phone-error" role="alert">Please enter a valid phone number.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email Address <span class="required" aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" autocomplete="email" required aria-required="true" placeholder="you@example.com" />
+                    <span class="field-error" id="email-error" role="alert">Please enter a valid email address.</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="relationship">Relationship to Prospective Resident <span class="required" aria-hidden="true">*</span></label>
+                  <select id="relationship" name="relationship" required aria-required="true">
+                    <option value="" disabled selected>Select one…</option>
+                    <option value="self">Self (I am the prospective resident)</option>
+                    <option value="family">Family Member</option>
+                    <option value="referral">Referral Partner (social worker, discharge planner, physician)</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <span class="field-error" id="relationship-error" role="alert">Please select your relationship.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="house">Which house would you like to visit? <span class="required" aria-hidden="true">*</span></label>
+                  <select id="house" name="house" required aria-required="true">
+                    <option value="" disabled selected>Select one…</option>
+                    <option value="towanda">Towanda House</option>
+                    <option value="tyler">Tyler House</option>
+                    <option value="either">Either / No Preference</option>
+                  </select>
+                  <span class="field-error" id="house-error" role="alert">Please select which house you'd like to visit.</span>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="visit-date">Preferred Visit Date <span class="required" aria-hidden="true">*</span></label>
+                    <input type="date" id="visit-date" name="preferred_date" required aria-required="true" />
+                    <span class="field-error" id="visit-date-error" role="alert">Please select a preferred date.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="visit-time">Preferred Visit Time <span class="required" aria-hidden="true">*</span></label>
+                    <select id="visit-time" name="preferred_time" required aria-required="true">
+                      <option value="" disabled selected>Select one…</option>
+                      <option value="morning">Morning</option>
+                      <option value="afternoon">Afternoon</option>
+                      <option value="either">Either / No Preference</option>
+                    </select>
+                    <span class="field-error" id="visit-time-error" role="alert">Please select a preferred time.</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Message / Additional Notes <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label>
+                  <textarea id="message" name="message" placeholder="Tell us a bit about your situation or anything you'd like us to know before the visit…"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary form-submit" id="submit-btn">
+                  Request a Visit
+                </button>
+
+              </form>
+            </div>
+          </div>
+
+          <!-- SIDEBAR -->
+          <aside class="sidebar-info" aria-label="Visit information">
+            <div class="info-box">
+              <h3>What to Expect</h3>
+              <div class="info-item">
+                <span class="info-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg></span>
+                <div>
+                  <strong>Step 1: We'll Reach Out</strong>
+                  <p>A team member will contact you within 1 business day to confirm your visit time.</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div>
+                  <strong>Step 2: Tour the Home</strong>
+                  <p>We'll walk you through the house, show you the common areas, and answer any questions.</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                <div>
+                  <strong>Step 3: Just Talk</strong>
+                  <p>We'll answer your questions and talk through whether Mi Casa makes sense for your situation.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <h3>Who Should Visit?</h3>
+              <div class="info-item">
+                <span class="info-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div>
+                  <p><strong>Adult children</strong> looking into options for a parent are welcome to visit on their own or bring them along.</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+                <div>
+                  <p><strong>Prospective residents</strong> are always welcome to come see the home themselves.</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg></span>
+                <div>
+                  <p><strong>Social workers, discharge planners, and physicians</strong> are welcome to come tour and learn more about how we work.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-box" style="background:var(--brown-light);border:1px solid var(--brown);">
+              <h3 style="color:var(--brown-dark);">Questions Before You Visit?</h3>
+              <p style="font-size:0.9rem;color:var(--text-muted);">
+                You're also welcome to reach out directly. Add a message in the form or let us know the best way to connect.
+              </p>
+              <p style="font-size:0.9rem;color:var(--text-muted);margin-top:0.75rem;">
+                We typically respond within 1 business day.
+              </p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="nav-logo" href="index.html"><img src="Mi Casa Logo copy.PNG" alt="Mi Casa Care Homes logo" />Mi Casa <span style="color:var(--gold)">Care Homes</span></a>
+          <p>A licensed Home Plus facility in Kansas. A small, intimate setting. Regulated by KDADS.</p>
+          <a href="tel:3167776655" class="footer-phone">(316) 777-6655</a>
+          <address class="footer-addresses">
+            <div><strong>Tyler House</strong><br>968 N Tyler Rd, Wichita, KS</div>
+            <div><strong>Towanda House</strong><br>521 Main St, Towanda, KS</div>
+          </address>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="home-plus.html">What is Home Plus?</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="perform.html">Perform at Mi Casa</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="schedule.html">Visit Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://kdads.ks.gov" target="_blank" rel="noopener">KDADS (kdads.ks.gov)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Mi Casa Care Homes. All rights reserved.</span>
+        <span>Licensed by the Kansas Department for Aging and Disability Services</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script src="form.js"></script>
+  <script src="socials.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>
