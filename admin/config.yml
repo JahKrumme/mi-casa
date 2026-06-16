@@ -1,7 +1,9 @@
 backend:
-  name: github
+  name: git-gateway
   repo: jahkrumme/mi-casa
-  branch: main  # Replace if your default branch is named differently
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 
 media_folder: images
 public_folder: /images
