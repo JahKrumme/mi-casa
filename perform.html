@@ -261,7 +261,7 @@
             </p>
 
             <form class="app-form" id="performer-form" novalidate
-                  action="https://formspree.io/f/PERFORMER_ID"
+                  action="https://formspree.io/f/xjgdnoba"
                   method="POST">
 
               <!-- ── SECTION 1: BASIC INFORMATION ─────────────── -->
@@ -586,7 +586,7 @@
       var btn = document.getElementById('performer-submit-btn');
       btn.disabled = true;
       btn.textContent = 'Submitting…';
-      fetch('/', {
+      fetch(this.action, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(new FormData(this)).toString(),

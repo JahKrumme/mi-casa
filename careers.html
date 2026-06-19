@@ -345,7 +345,7 @@
                 <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Back to Home</a>
               </div>
               <form class="app-form" id="form-cna" novalidate
-                    action="https://formspree.io/f/CAREERS_CNA_ID"
+                    action="https://formspree.io/f/meewyzjq"
                     method="POST">
                 <input type="hidden" name="position" value="CNA" />
                 <!-- reuse macro below -->
@@ -362,7 +362,7 @@
                 <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Back to Home</a>
               </div>
               <form class="app-form" id="form-cma" novalidate
-                    action="https://formspree.io/f/CAREERS_CMA_ID"
+                    action="https://formspree.io/f/mwvjgqeo"
                     method="POST">
                 <input type="hidden" name="position" value="CMA" />
                 <div data-form-body="cma"></div>
@@ -378,7 +378,7 @@
                 <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Back to Home</a>
               </div>
               <form class="app-form" id="form-nurse" novalidate
-                    action="https://formspree.io/f/CAREERS_NURSE_ID"
+                    action="https://formspree.io/f/xbdenkrk"
                     method="POST">
                 <input type="hidden" name="position" value="Nurse" />
                 <div data-form-body="nurse"></div>
@@ -746,7 +746,7 @@
           const btn = form.querySelector('.btn-submit');
           btn.disabled = true;
           btn.textContent = 'Submitting…';
-          fetch('/', {
+          fetch(form.action, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(new FormData(form)).toString(),

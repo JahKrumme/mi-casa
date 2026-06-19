@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const btn = document.getElementById('submit-btn');
     btn.disabled = true;
     btn.textContent = 'Sending…';
-    fetch('/', {
+    fetch(form.action, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(new FormData(form)).toString(),
