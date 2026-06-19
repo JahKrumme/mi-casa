@@ -1,0 +1,11 @@
+# Environment files with API keys — never commit these
+tools/.env
+.env
+*.env
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]

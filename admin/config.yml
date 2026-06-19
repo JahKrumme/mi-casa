@@ -28,3 +28,35 @@ collections:
       - { label: Excerpt, name: excerpt, widget: text, hint: "Short summary shown on the blog index card (1-2 sentences)" }
       - { label: Featured Image, name: featured_image, widget: image, required: false, hint: "Optional. Shown on the blog index card and at the top of the post." }
       - { label: Body, name: body, widget: markdown }
+
+  - name: newsletter
+    label: Newsletters
+    label_singular: Newsletter
+    folder: newsletters
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string, hint: "e.g. June 2026 -- The Casa Chronicles" }
+      - label: Publish Date
+        name: date
+        widget: datetime
+        format: YYYY-MM-DD
+        date_format: YYYY-MM-DD
+        time_format: false
+        picker_utc: true
+      - { label: Excerpt, name: excerpt, widget: text, hint: "Short summary shown on the newsletter index (1-2 sentences)" }
+      - { label: Featured Image, name: featured_image, widget: image, required: false }
+      - label: Body
+        name: body
+        widget: markdown
+        hint: >
+          Write the full newsletter here. Use ## headings for sections (Resident Spotlight,
+          Activities Highlights, Family Tips, Upcoming Events). For the two-column activities
+          layout, use a Markdown table or include HTML directly. Images can be embedded
+          anywhere with standard Markdown image syntax.
+      - label: Additional Images
+        name: images
+        widget: list
+        required: false
+        hint: "Upload extra photos to reference in the body."
+        field: { label: Image, name: image, widget: image }

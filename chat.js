@@ -284,7 +284,7 @@
     // ── Family communication / staying in touch ──────────────────
     {
       test: /how do (i|we|families?) (stay in touch|communicate|keep in touch|reach out|check in|hear|get updates?|find out how)|updates? (on|about) (my|our|a) (loved one|mom|dad|parent|resident|them)|contact (staff|the home|the team)|communicate with (the home|staff|team|caregivers?)|call (the home|staff|team)|how (do|will|can) (you|the team|staff) communicate|keep (me|us|families?) (informed|updated|in the loop)/i,
-      reply: "We keep families informed and welcome your calls and visits. You can reach our staff at (316) 777-6655 anytime, and we proactively communicate with families whenever there are health changes or important updates. We believe families are partners in care, not visitors.",
+      reply: "We keep families informed and welcome your calls and visits. You can reach our staff at (316) 777-6655 anytime, and we proactively communicate with families whenever there are health changes or important updates. We also publish <a href='newsletter.html'>The Casa Chronicles</a>, our newsletter, with updates and highlights from both homes. We believe families are partners in care, not visitors.",
       quick: ['Schedule a Visit', 'Meet the Team']
     },
     // ── Home feel / atmosphere ───────────────────────────────────
@@ -380,6 +380,13 @@
       nav: 'blog.html',
       quick: ['What is Home Plus?', 'Schedule a Visit']
     },
+    // ── Newsletter ───────────────────────────────────────────────
+    {
+      test: /newsletter|casa chronicle|the chronicle|updates from (mi casa|the home|both homes)|what.?s new at mi casa|news from (the home|mi casa)|latest (news|updates|highlights)/i,
+      reply: "We publish The Casa Chronicles, our newsletter, with updates, resident spotlights, activity highlights, and upcoming events from both our Tyler and Towanda homes. Taking you there now.",
+      nav: 'newsletter.html',
+      quick: ['Schedule a Visit', 'See the Gallery']
+    },
     // ── Performing / volunteering ─────────────────────────────────
     {
       test: /perform|performer|entertain(er|ment)?|volunteer|bring joy|visit (the )?residents|sing(er)?|musician|band|magic(ian)?|animal visit|therapy animal|craft (session|class|visit)|storytell|come (to )?perform|come (to )?entertain|share (your|my|their) (gift|talent)|can (i|we) (perform|come|volunteer|entertain)|interested in (performing|volunteering|entertaining)/i,
@@ -447,7 +454,7 @@
     // ── Site navigation ───────────────────────────────────────────
     {
       test: /page|navigate|find|where (is|can i find)|how do i get to/i,
-      reply: "Here is a guide to our website: <a href='index.html'>Home</a> &middot; <a href='about.html'>About Us</a> &middot; <a href='about.html#staff-heading'>Meet the Team</a> &middot; <a href='about.html#locations-heading'>Our Locations</a> &middot; <a href='about.html#payment-heading'>Payment Options</a> &middot; <a href='home-plus.html'>What is Home Plus?</a> &middot; <a href='blog.html'>Blog</a> &middot; <a href='faq.html'>FAQ</a> &middot; <a href='gallery.html'>Gallery</a> &middot; <a href='careers.html'>Careers</a> &middot; <a href='schedule.html'>Schedule a Visit</a>"
+      reply: "Here is a guide to our website: <a href='index.html'>Home</a> &middot; <a href='about.html'>About Us</a> &middot; <a href='about.html#staff-heading'>Meet the Team</a> &middot; <a href='about.html#locations-heading'>Our Locations</a> &middot; <a href='about.html#payment-heading'>Payment Options</a> &middot; <a href='home-plus.html'>What is Home Plus?</a> &middot; <a href='blog.html'>Blog</a> &middot; <a href='newsletter.html'>Newsletter</a> &middot; <a href='faq.html'>FAQ</a> &middot; <a href='gallery.html'>Gallery</a> &middot; <a href='careers.html'>Careers</a> &middot; <a href='schedule.html'>Schedule a Visit</a>"
     },
     // ── Thanks ────────────────────────────────────────────────────
     {
@@ -675,10 +682,21 @@
         { w: 2, p: ['learn', 'understand', 'explain'] }
       ]
     },
+    // ── Newsletter ───────────────────────────────────────────────
+    {
+      nav: 'newsletter.html',
+      reply: "We publish The Casa Chronicles, our newsletter, with updates and highlights from both homes. Taking you there now.",
+      threshold: 3,
+      signals: [
+        { w: 8, p: ['newsletter', 'casa chronicle', 'the chronicle', 'casa chronicle newsletter'] },
+        { w: 5, p: ["what's new", "what is new", 'latest news', 'latest updates', 'news from the home', 'updates from mi casa'] },
+        { w: 3, p: ['news', 'updates', 'highlights', 'monthly', 'issue'] }
+      ]
+    },
     // ── Family communication ──────────────────────────────────────
     {
       nav: null,
-      reply: "We keep families informed and welcome your calls anytime. You can reach us at (316) 777-6655, and we proactively communicate with families when there are health changes or important updates. Families are partners in care, not visitors.",
+      reply: "We keep families informed and welcome your calls anytime. You can reach us at (316) 777-6655, and we proactively communicate with families when there are health changes or important updates. We also publish <a href='newsletter.html'>The Casa Chronicles</a>, our newsletter, with highlights and updates from both homes. Families are partners in care, not visitors.",
       threshold: 4,
       signals: [
         { w: 6, p: ['stay in touch', 'keep in touch', 'how do i communicate', 'how will you communicate', 'updates on my loved one', 'get updates'] },
