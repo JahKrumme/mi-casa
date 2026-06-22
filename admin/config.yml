@@ -1,9 +1,8 @@
 backend:
-  name: git-gateway
-  repo: jahkrumme/mi-casa
+  name: github
+  repo: JahKrumme/mi-casa
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  base_url: https://decapcms.org
 
 media_folder: images
 public_folder: /images
