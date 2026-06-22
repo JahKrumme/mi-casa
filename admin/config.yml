@@ -2,7 +2,6 @@ backend:
   name: github
   repo: JahKrumme/mi-casa
   branch: main
-  base_url: https://decapcms.org
 
 media_folder: images
 public_folder: /images
