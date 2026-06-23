@@ -1,6 +1,6 @@
 backend:
-  name: github
-  repo: JahKrumme/mi-casa
+  name: git-gateway
+  repo: jahkrumme/mi-casa
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth

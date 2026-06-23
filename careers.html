@@ -344,9 +344,11 @@
                 <p>Thank you for applying for the CNA position. We'll review your application and be in touch soon.</p>
                 <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Back to Home</a>
               </div>
-              <form class="app-form" id="form-cna" novalidate
-                    action="https://formspree.io/f/meewyzjq"
-                    method="POST">
+              <form class="app-form" id="form-cna" name="apply-cna" novalidate
+                    action="/success.html"
+                    method="POST"
+                    data-netlify="true">
+                <input type="hidden" name="form-name" value="apply-cna" />
                 <input type="hidden" name="position" value="CNA" />
                 <!-- reuse macro below -->
                 <div data-form-body="cna"></div>
@@ -361,9 +363,11 @@
                 <p>Thank you for applying for the CMA position. We'll review your application and be in touch soon.</p>
                 <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Back to Home</a>
               </div>
-              <form class="app-form" id="form-cma" novalidate
-                    action="https://formspree.io/f/mwvjgqeo"
-                    method="POST">
+              <form class="app-form" id="form-cma" name="apply-cma" novalidate
+                    action="/success.html"
+                    method="POST"
+                    data-netlify="true">
+                <input type="hidden" name="form-name" value="apply-cma" />
                 <input type="hidden" name="position" value="CMA" />
                 <div data-form-body="cma"></div>
               </form>
@@ -377,9 +381,11 @@
                 <p>Thank you for applying for the Nurse position. We'll review your application and be in touch soon.</p>
                 <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Back to Home</a>
               </div>
-              <form class="app-form" id="form-nurse" novalidate
-                    action="https://formspree.io/f/xbdenkrk"
-                    method="POST">
+              <form class="app-form" id="form-nurse" name="apply-nurse" novalidate
+                    action="/success.html"
+                    method="POST"
+                    data-netlify="true">
+                <input type="hidden" name="form-name" value="apply-nurse" />
                 <input type="hidden" name="position" value="Nurse" />
                 <div data-form-body="nurse"></div>
               </form>
@@ -746,7 +752,7 @@
           const btn = form.querySelector('.btn-submit');
           btn.disabled = true;
           btn.textContent = 'Submitting…';
-          fetch(form.action, {
+          fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(new FormData(form)).toString(),

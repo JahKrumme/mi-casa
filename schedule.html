@@ -90,10 +90,12 @@
               </div>
 
               <!-- FORM -->
-              <form id="visit-form" novalidate
-                    action="https://formspree.io/f/mbdenynz"
+              <form id="visit-form" name="schedule-visit" novalidate
+                    action="/success.html"
                     method="POST"
-                    aria-label="Schedule a visit form">
+                    aria-label="Schedule a visit form"
+                    data-netlify="true">
+                <input type="hidden" name="form-name" value="schedule-visit" />
 
                 <div class="form-row">
                   <div class="form-group">
