@@ -5,7 +5,7 @@ category: Family Guide
 excerpt: Knowing when to consider a care home for a loved one is one of the
   hardest decisions a family can face. Here are five signs that it may be time
   to explore your options.
-featured_image: /images/1000035497.jpg
+featured_image: ""
 ---
 For most families, the decision to move a loved one into a care home does not happen overnight. It builds slowly, through late night worries, close calls, and the quiet realization that things are changing. If you have been wrestling with this question, you are not alone. It is one of the most common and most difficult decisions adult children face.
 
