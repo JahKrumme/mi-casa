@@ -331,8 +331,8 @@
 
             <!-- TABS -->
             <div class="position-tabs" role="tablist" aria-label="Position selection">
-              <button class="tab-btn active" role="tab" aria-selected="true"  aria-controls="panel-cna"  id="tab-cna"  onclick="switchTab('cna')">CNA</button>
-              <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="panel-cma"  id="tab-cma"  onclick="switchTab('cma')">CMA</button>
+              <button class="tab-btn active" role="tab" aria-selected="true"  aria-controls="panel-cna"   id="tab-cna"   onclick="switchTab('cna')">CNA</button>
+              <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="panel-cma"   id="tab-cma"   onclick="switchTab('cma')">CMA</button>
               <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="panel-nurse" id="tab-nurse" onclick="switchTab('nurse')">Nurse</button>
             </div>
 
@@ -345,13 +345,244 @@
                 <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Back to Home</a>
               </div>
               <form class="app-form" id="form-cna" name="apply-cna" novalidate
-                    action="/success.html"
-                    method="POST"
-                    data-netlify="true">
+                    action="/success.html" method="POST" data-netlify="true">
                 <input type="hidden" name="form-name" value="apply-cna" />
                 <input type="hidden" name="position" value="CNA" />
-                <!-- reuse macro below -->
-                <div data-form-body="cna"></div>
+
+                <!-- PERSONAL INFORMATION -->
+                <div class="form-section">
+                  <div class="form-section-title">Personal Information</div>
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label for="cna-first-name">First Name <span class="req">*</span></label>
+                      <input type="text" id="cna-first-name" name="first_name" autocomplete="given-name" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="cna-last-name">Last Name <span class="req">*</span></label>
+                      <input type="text" id="cna-last-name" name="last_name" autocomplete="family-name" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="cna-address">Street Address <span class="req">*</span></label>
+                    <input type="text" id="cna-address" name="address" autocomplete="street-address" required />
+                    <span class="field-error">Required.</span>
+                  </div>
+                  <div class="form-grid-3">
+                    <div class="form-group">
+                      <label for="cna-city">City <span class="req">*</span></label>
+                      <input type="text" id="cna-city" name="city" autocomplete="address-level2" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="cna-state">State <span class="req">*</span></label>
+                      <input type="text" id="cna-state" name="state" autocomplete="address-level1" maxlength="2" placeholder="KS" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="cna-zip">ZIP Code <span class="req">*</span></label>
+                      <input type="text" id="cna-zip" name="zip" autocomplete="postal-code" inputmode="numeric" maxlength="10" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                  </div>
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label for="cna-phone">Phone Number <span class="req">*</span></label>
+                      <input type="tel" id="cna-phone" name="phone" autocomplete="tel" placeholder="(555) 000-0000" required />
+                      <span class="field-error">Enter a valid phone number.</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="cna-start-date">Date You Can Start <span class="req">*</span></label>
+                      <input type="date" id="cna-start-date" name="start_date" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                  </div>
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label for="cna-salary">Desired Salary / Wage <span class="req">*</span></label>
+                      <input type="text" id="cna-salary" name="desired_salary" placeholder="e.g. $18/hr or $40,000/yr" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                    <div class="form-group">
+                      <label>High School Diploma or GED? <span class="req">*</span></label>
+                      <div class="radio-group" id="cna-diploma-group">
+                        <label><input type="radio" name="cna_diploma" value="Yes" /> Yes</label>
+                        <label><input type="radio" name="cna_diploma" value="No" /> No</label>
+                      </div>
+                      <span class="field-error" id="cna-diploma-error">Please select one.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- POSITION INFORMATION -->
+                <div class="form-section">
+                  <div class="form-section-title">Position Information</div>
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label>Hours <span class="req">*</span></label>
+                      <div class="radio-group" id="cna-hours-group">
+                        <label><input type="radio" name="cna_hours" value="Full Time" /> Full Time</label>
+                        <label><input type="radio" name="cna_hours" value="Part Time" /> Part Time</label>
+                      </div>
+                      <span class="field-error" id="cna-hours-error">Please select one.</span>
+                    </div>
+                    <div class="form-group">
+                      <label>Shift <span class="req">*</span></label>
+                      <div class="radio-group" id="cna-shift-group">
+                        <label><input type="radio" name="cna_shift" value="Days" /> Days</label>
+                        <label><input type="radio" name="cna_shift" value="Nights" /> Nights</label>
+                        <label><input type="radio" name="cna_shift" value="Either" /> Either</label>
+                      </div>
+                      <span class="field-error" id="cna-shift-error">Please select one.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="check-group">
+                      <label>
+                        <input type="checkbox" name="cna_work_auth" id="cna-work-auth" value="Yes" />
+                        I am authorized to work in the United States on an unrestricted basis <span class="req">*</span>
+                      </label>
+                    </div>
+                    <span class="field-error" id="cna-auth-error">You must confirm work authorization to apply.</span>
+                  </div>
+                </div>
+
+                <!-- BACKGROUND -->
+                <div class="form-section">
+                  <div class="form-section-title">Background</div>
+                  <div class="form-group">
+                    <label>Have you ever been convicted of a felony? <span class="req">*</span></label>
+                    <div class="radio-group" id="cna-felony-group">
+                      <label><input type="radio" name="cna_felony" value="No"  onchange="toggleFelony('cna', false)" /> No</label>
+                      <label><input type="radio" name="cna_felony" value="Yes" onchange="toggleFelony('cna', true)"  /> Yes</label>
+                    </div>
+                    <span class="field-error" id="cna-felony-error">Please select one.</span>
+                  </div>
+                  <div class="felony-explain" id="cna-felony-explain">
+                    <div class="form-group">
+                      <label for="cna-felony-detail">Please explain the conviction(s)</label>
+                      <textarea id="cna-felony-detail" name="cna_felony_explanation" placeholder="A conviction does not automatically disqualify you. Please provide details…"></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- EDUCATION & QUALIFICATIONS -->
+                <div class="form-section">
+                  <div class="form-section-title">Education &amp; Qualifications</div>
+                  <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">List schools, colleges, vocational programs, certifications, or any other relevant training.</p>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Education / Program 1</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="cna-edu1-name">School / Institution</label><input type="text" id="cna-edu1-name" name="cna_edu1_name" /></div>
+                      <div class="form-group"><label for="cna-edu1-degree">Degree / Program / Certificate</label><input type="text" id="cna-edu1-degree" name="cna_edu1_degree" /></div>
+                    </div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="cna-edu1-years">Years Attended</label><input type="text" id="cna-edu1-years" name="cna_edu1_years" placeholder="e.g. 2018-2020" /></div>
+                      <div class="form-group"><label for="cna-edu1-graduated">Graduated / Completed?</label><select id="cna-edu1-graduated" name="cna_edu1_graduated"><option value="">Select...</option><option>Yes</option><option>No</option><option>In Progress</option></select></div>
+                    </div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Education / Program 2 (optional)</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="cna-edu2-name">School / Institution</label><input type="text" id="cna-edu2-name" name="cna_edu2_name" /></div>
+                      <div class="form-group"><label for="cna-edu2-degree">Degree / Program / Certificate</label><input type="text" id="cna-edu2-degree" name="cna_edu2_degree" /></div>
+                    </div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="cna-edu2-years">Years Attended</label><input type="text" id="cna-edu2-years" name="cna_edu2_years" placeholder="e.g. 2021-2022" /></div>
+                      <div class="form-group"><label for="cna-edu2-graduated">Graduated / Completed?</label><select id="cna-edu2-graduated" name="cna_edu2_graduated"><option value="">Select...</option><option>Yes</option><option>No</option><option>In Progress</option></select></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SPECIAL SKILLS -->
+                <div class="form-section">
+                  <div class="form-section-title">Special Skills</div>
+                  <div class="form-group">
+                    <label for="cna-skills">List any special skills relevant to this position</label>
+                    <textarea id="cna-skills" name="special_skills" placeholder="e.g. CPR certified, wound care, dementia care experience, bilingual (Spanish/English)..."></textarea>
+                  </div>
+                </div>
+
+                <!-- REFERENCES -->
+                <div class="form-section">
+                  <div class="form-section-title">References</div>
+                  <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">Please list three professional or personal references (not family members).</p>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Reference 1</div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="cna-ref1-name">Full Name</label><input type="text" id="cna-ref1-name" name="cna_ref1_name" /></div>
+                      <div class="form-group"><label for="cna-ref1-phone">Phone Number</label><input type="tel" id="cna-ref1-phone" name="cna_ref1_phone" /></div>
+                      <div class="form-group"><label for="cna-ref1-rel">Relationship</label><input type="text" id="cna-ref1-rel" name="cna_ref1_relationship" placeholder="e.g. Former Supervisor" /></div>
+                    </div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Reference 2</div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="cna-ref2-name">Full Name</label><input type="text" id="cna-ref2-name" name="cna_ref2_name" /></div>
+                      <div class="form-group"><label for="cna-ref2-phone">Phone Number</label><input type="tel" id="cna-ref2-phone" name="cna_ref2_phone" /></div>
+                      <div class="form-group"><label for="cna-ref2-rel">Relationship</label><input type="text" id="cna-ref2-rel" name="cna_ref2_relationship" placeholder="e.g. Former Supervisor" /></div>
+                    </div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Reference 3</div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="cna-ref3-name">Full Name</label><input type="text" id="cna-ref3-name" name="cna_ref3_name" /></div>
+                      <div class="form-group"><label for="cna-ref3-phone">Phone Number</label><input type="tel" id="cna-ref3-phone" name="cna_ref3_phone" /></div>
+                      <div class="form-group"><label for="cna-ref3-rel">Relationship</label><input type="text" id="cna-ref3-rel" name="cna_ref3_relationship" placeholder="e.g. Former Supervisor" /></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- WORK HISTORY -->
+                <div class="form-section">
+                  <div class="form-section-title">Work History</div>
+                  <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">List your most recent positions first.</p>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Position 1 (Most Recent)</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="cna-job1-employer">Employer / Facility</label><input type="text" id="cna-job1-employer" name="cna_job1_employer" /></div>
+                      <div class="form-group"><label for="cna-job1-title">Your Job Title</label><input type="text" id="cna-job1-title" name="cna_job1_title" /></div>
+                    </div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="cna-job1-from">From (date)</label><input type="text" id="cna-job1-from" name="cna_job1_from" placeholder="MM/YYYY" /></div>
+                      <div class="form-group"><label for="cna-job1-to">To (date)</label><input type="text" id="cna-job1-to" name="cna_job1_to" placeholder="MM/YYYY or Present" /></div>
+                      <div class="form-group"><label for="cna-job1-phone">Employer Phone</label><input type="tel" id="cna-job1-phone" name="cna_job1_phone" /></div>
+                    </div>
+                    <div class="form-group"><label for="cna-job1-reason">Reason for Leaving</label><input type="text" id="cna-job1-reason" name="cna_job1_reason_for_leaving" /></div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Position 2 (optional)</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="cna-job2-employer">Employer / Facility</label><input type="text" id="cna-job2-employer" name="cna_job2_employer" /></div>
+                      <div class="form-group"><label for="cna-job2-title">Your Job Title</label><input type="text" id="cna-job2-title" name="cna_job2_title" /></div>
+                    </div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="cna-job2-from">From (date)</label><input type="text" id="cna-job2-from" name="cna_job2_from" placeholder="MM/YYYY" /></div>
+                      <div class="form-group"><label for="cna-job2-to">To (date)</label><input type="text" id="cna-job2-to" name="cna_job2_to" placeholder="MM/YYYY or Present" /></div>
+                      <div class="form-group"><label for="cna-job2-phone">Employer Phone</label><input type="tel" id="cna-job2-phone" name="cna_job2_phone" /></div>
+                    </div>
+                    <div class="form-group"><label for="cna-job2-reason">Reason for Leaving</label><input type="text" id="cna-job2-reason" name="cna_job2_reason_for_leaving" /></div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Position 3 (optional)</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="cna-job3-employer">Employer / Facility</label><input type="text" id="cna-job3-employer" name="cna_job3_employer" /></div>
+                      <div class="form-group"><label for="cna-job3-title">Your Job Title</label><input type="text" id="cna-job3-title" name="cna_job3_title" /></div>
+                    </div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="cna-job3-from">From (date)</label><input type="text" id="cna-job3-from" name="cna_job3_from" placeholder="MM/YYYY" /></div>
+                      <div class="form-group"><label for="cna-job3-to">To (date)</label><input type="text" id="cna-job3-to" name="cna_job3_to" placeholder="MM/YYYY or Present" /></div>
+                      <div class="form-group"><label for="cna-job3-phone">Employer Phone</label><input type="tel" id="cna-job3-phone" name="cna_job3_phone" /></div>
+                    </div>
+                    <div class="form-group"><label for="cna-job3-reason">Reason for Leaving</label><input type="text" id="cna-job3-reason" name="cna_job3_reason_for_leaving" /></div>
+                  </div>
+                </div>
+
+                <!-- SUBMIT -->
+                <div class="form-submit-row">
+                  <button type="submit" class="btn btn-primary btn-submit">Submit Application</button>
+                </div>
               </form>
             </div>
 
@@ -364,12 +595,244 @@
                 <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Back to Home</a>
               </div>
               <form class="app-form" id="form-cma" name="apply-cma" novalidate
-                    action="/success.html"
-                    method="POST"
-                    data-netlify="true">
+                    action="/success.html" method="POST" data-netlify="true">
                 <input type="hidden" name="form-name" value="apply-cma" />
                 <input type="hidden" name="position" value="CMA" />
-                <div data-form-body="cma"></div>
+
+                <!-- PERSONAL INFORMATION -->
+                <div class="form-section">
+                  <div class="form-section-title">Personal Information</div>
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label for="cma-first-name">First Name <span class="req">*</span></label>
+                      <input type="text" id="cma-first-name" name="first_name" autocomplete="given-name" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="cma-last-name">Last Name <span class="req">*</span></label>
+                      <input type="text" id="cma-last-name" name="last_name" autocomplete="family-name" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="cma-address">Street Address <span class="req">*</span></label>
+                    <input type="text" id="cma-address" name="address" autocomplete="street-address" required />
+                    <span class="field-error">Required.</span>
+                  </div>
+                  <div class="form-grid-3">
+                    <div class="form-group">
+                      <label for="cma-city">City <span class="req">*</span></label>
+                      <input type="text" id="cma-city" name="city" autocomplete="address-level2" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="cma-state">State <span class="req">*</span></label>
+                      <input type="text" id="cma-state" name="state" autocomplete="address-level1" maxlength="2" placeholder="KS" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="cma-zip">ZIP Code <span class="req">*</span></label>
+                      <input type="text" id="cma-zip" name="zip" autocomplete="postal-code" inputmode="numeric" maxlength="10" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                  </div>
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label for="cma-phone">Phone Number <span class="req">*</span></label>
+                      <input type="tel" id="cma-phone" name="phone" autocomplete="tel" placeholder="(555) 000-0000" required />
+                      <span class="field-error">Enter a valid phone number.</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="cma-start-date">Date You Can Start <span class="req">*</span></label>
+                      <input type="date" id="cma-start-date" name="start_date" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                  </div>
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label for="cma-salary">Desired Salary / Wage <span class="req">*</span></label>
+                      <input type="text" id="cma-salary" name="desired_salary" placeholder="e.g. $18/hr or $40,000/yr" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                    <div class="form-group">
+                      <label>High School Diploma or GED? <span class="req">*</span></label>
+                      <div class="radio-group" id="cma-diploma-group">
+                        <label><input type="radio" name="cma_diploma" value="Yes" /> Yes</label>
+                        <label><input type="radio" name="cma_diploma" value="No" /> No</label>
+                      </div>
+                      <span class="field-error" id="cma-diploma-error">Please select one.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- POSITION INFORMATION -->
+                <div class="form-section">
+                  <div class="form-section-title">Position Information</div>
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label>Hours <span class="req">*</span></label>
+                      <div class="radio-group" id="cma-hours-group">
+                        <label><input type="radio" name="cma_hours" value="Full Time" /> Full Time</label>
+                        <label><input type="radio" name="cma_hours" value="Part Time" /> Part Time</label>
+                      </div>
+                      <span class="field-error" id="cma-hours-error">Please select one.</span>
+                    </div>
+                    <div class="form-group">
+                      <label>Shift <span class="req">*</span></label>
+                      <div class="radio-group" id="cma-shift-group">
+                        <label><input type="radio" name="cma_shift" value="Days" /> Days</label>
+                        <label><input type="radio" name="cma_shift" value="Nights" /> Nights</label>
+                        <label><input type="radio" name="cma_shift" value="Either" /> Either</label>
+                      </div>
+                      <span class="field-error" id="cma-shift-error">Please select one.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="check-group">
+                      <label>
+                        <input type="checkbox" name="cma_work_auth" id="cma-work-auth" value="Yes" />
+                        I am authorized to work in the United States on an unrestricted basis <span class="req">*</span>
+                      </label>
+                    </div>
+                    <span class="field-error" id="cma-auth-error">You must confirm work authorization to apply.</span>
+                  </div>
+                </div>
+
+                <!-- BACKGROUND -->
+                <div class="form-section">
+                  <div class="form-section-title">Background</div>
+                  <div class="form-group">
+                    <label>Have you ever been convicted of a felony? <span class="req">*</span></label>
+                    <div class="radio-group" id="cma-felony-group">
+                      <label><input type="radio" name="cma_felony" value="No"  onchange="toggleFelony('cma', false)" /> No</label>
+                      <label><input type="radio" name="cma_felony" value="Yes" onchange="toggleFelony('cma', true)"  /> Yes</label>
+                    </div>
+                    <span class="field-error" id="cma-felony-error">Please select one.</span>
+                  </div>
+                  <div class="felony-explain" id="cma-felony-explain">
+                    <div class="form-group">
+                      <label for="cma-felony-detail">Please explain the conviction(s)</label>
+                      <textarea id="cma-felony-detail" name="cma_felony_explanation" placeholder="A conviction does not automatically disqualify you. Please provide details..."></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- EDUCATION & QUALIFICATIONS -->
+                <div class="form-section">
+                  <div class="form-section-title">Education &amp; Qualifications</div>
+                  <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">List schools, colleges, vocational programs, certifications, or any other relevant training.</p>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Education / Program 1</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="cma-edu1-name">School / Institution</label><input type="text" id="cma-edu1-name" name="cma_edu1_name" /></div>
+                      <div class="form-group"><label for="cma-edu1-degree">Degree / Program / Certificate</label><input type="text" id="cma-edu1-degree" name="cma_edu1_degree" /></div>
+                    </div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="cma-edu1-years">Years Attended</label><input type="text" id="cma-edu1-years" name="cma_edu1_years" placeholder="e.g. 2018-2020" /></div>
+                      <div class="form-group"><label for="cma-edu1-graduated">Graduated / Completed?</label><select id="cma-edu1-graduated" name="cma_edu1_graduated"><option value="">Select...</option><option>Yes</option><option>No</option><option>In Progress</option></select></div>
+                    </div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Education / Program 2 (optional)</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="cma-edu2-name">School / Institution</label><input type="text" id="cma-edu2-name" name="cma_edu2_name" /></div>
+                      <div class="form-group"><label for="cma-edu2-degree">Degree / Program / Certificate</label><input type="text" id="cma-edu2-degree" name="cma_edu2_degree" /></div>
+                    </div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="cma-edu2-years">Years Attended</label><input type="text" id="cma-edu2-years" name="cma_edu2_years" placeholder="e.g. 2021-2022" /></div>
+                      <div class="form-group"><label for="cma-edu2-graduated">Graduated / Completed?</label><select id="cma-edu2-graduated" name="cma_edu2_graduated"><option value="">Select...</option><option>Yes</option><option>No</option><option>In Progress</option></select></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SPECIAL SKILLS -->
+                <div class="form-section">
+                  <div class="form-section-title">Special Skills</div>
+                  <div class="form-group">
+                    <label for="cma-skills">List any special skills relevant to this position</label>
+                    <textarea id="cma-skills" name="special_skills" placeholder="e.g. CPR certified, wound care, dementia care experience, bilingual (Spanish/English)..."></textarea>
+                  </div>
+                </div>
+
+                <!-- REFERENCES -->
+                <div class="form-section">
+                  <div class="form-section-title">References</div>
+                  <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">Please list three professional or personal references (not family members).</p>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Reference 1</div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="cma-ref1-name">Full Name</label><input type="text" id="cma-ref1-name" name="cma_ref1_name" /></div>
+                      <div class="form-group"><label for="cma-ref1-phone">Phone Number</label><input type="tel" id="cma-ref1-phone" name="cma_ref1_phone" /></div>
+                      <div class="form-group"><label for="cma-ref1-rel">Relationship</label><input type="text" id="cma-ref1-rel" name="cma_ref1_relationship" placeholder="e.g. Former Supervisor" /></div>
+                    </div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Reference 2</div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="cma-ref2-name">Full Name</label><input type="text" id="cma-ref2-name" name="cma_ref2_name" /></div>
+                      <div class="form-group"><label for="cma-ref2-phone">Phone Number</label><input type="tel" id="cma-ref2-phone" name="cma_ref2_phone" /></div>
+                      <div class="form-group"><label for="cma-ref2-rel">Relationship</label><input type="text" id="cma-ref2-rel" name="cma_ref2_relationship" placeholder="e.g. Former Supervisor" /></div>
+                    </div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Reference 3</div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="cma-ref3-name">Full Name</label><input type="text" id="cma-ref3-name" name="cma_ref3_name" /></div>
+                      <div class="form-group"><label for="cma-ref3-phone">Phone Number</label><input type="tel" id="cma-ref3-phone" name="cma_ref3_phone" /></div>
+                      <div class="form-group"><label for="cma-ref3-rel">Relationship</label><input type="text" id="cma-ref3-rel" name="cma_ref3_relationship" placeholder="e.g. Former Supervisor" /></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- WORK HISTORY -->
+                <div class="form-section">
+                  <div class="form-section-title">Work History</div>
+                  <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">List your most recent positions first.</p>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Position 1 (Most Recent)</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="cma-job1-employer">Employer / Facility</label><input type="text" id="cma-job1-employer" name="cma_job1_employer" /></div>
+                      <div class="form-group"><label for="cma-job1-title">Your Job Title</label><input type="text" id="cma-job1-title" name="cma_job1_title" /></div>
+                    </div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="cma-job1-from">From (date)</label><input type="text" id="cma-job1-from" name="cma_job1_from" placeholder="MM/YYYY" /></div>
+                      <div class="form-group"><label for="cma-job1-to">To (date)</label><input type="text" id="cma-job1-to" name="cma_job1_to" placeholder="MM/YYYY or Present" /></div>
+                      <div class="form-group"><label for="cma-job1-phone">Employer Phone</label><input type="tel" id="cma-job1-phone" name="cma_job1_phone" /></div>
+                    </div>
+                    <div class="form-group"><label for="cma-job1-reason">Reason for Leaving</label><input type="text" id="cma-job1-reason" name="cma_job1_reason_for_leaving" /></div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Position 2 (optional)</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="cma-job2-employer">Employer / Facility</label><input type="text" id="cma-job2-employer" name="cma_job2_employer" /></div>
+                      <div class="form-group"><label for="cma-job2-title">Your Job Title</label><input type="text" id="cma-job2-title" name="cma_job2_title" /></div>
+                    </div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="cma-job2-from">From (date)</label><input type="text" id="cma-job2-from" name="cma_job2_from" placeholder="MM/YYYY" /></div>
+                      <div class="form-group"><label for="cma-job2-to">To (date)</label><input type="text" id="cma-job2-to" name="cma_job2_to" placeholder="MM/YYYY or Present" /></div>
+                      <div class="form-group"><label for="cma-job2-phone">Employer Phone</label><input type="tel" id="cma-job2-phone" name="cma_job2_phone" /></div>
+                    </div>
+                    <div class="form-group"><label for="cma-job2-reason">Reason for Leaving</label><input type="text" id="cma-job2-reason" name="cma_job2_reason_for_leaving" /></div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Position 3 (optional)</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="cma-job3-employer">Employer / Facility</label><input type="text" id="cma-job3-employer" name="cma_job3_employer" /></div>
+                      <div class="form-group"><label for="cma-job3-title">Your Job Title</label><input type="text" id="cma-job3-title" name="cma_job3_title" /></div>
+                    </div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="cma-job3-from">From (date)</label><input type="text" id="cma-job3-from" name="cma_job3_from" placeholder="MM/YYYY" /></div>
+                      <div class="form-group"><label for="cma-job3-to">To (date)</label><input type="text" id="cma-job3-to" name="cma_job3_to" placeholder="MM/YYYY or Present" /></div>
+                      <div class="form-group"><label for="cma-job3-phone">Employer Phone</label><input type="tel" id="cma-job3-phone" name="cma_job3_phone" /></div>
+                    </div>
+                    <div class="form-group"><label for="cma-job3-reason">Reason for Leaving</label><input type="text" id="cma-job3-reason" name="cma_job3_reason_for_leaving" /></div>
+                  </div>
+                </div>
+
+                <!-- SUBMIT -->
+                <div class="form-submit-row">
+                  <button type="submit" class="btn btn-primary btn-submit">Submit Application</button>
+                </div>
               </form>
             </div>
 
@@ -382,12 +845,244 @@
                 <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">Back to Home</a>
               </div>
               <form class="app-form" id="form-nurse" name="apply-nurse" novalidate
-                    action="/success.html"
-                    method="POST"
-                    data-netlify="true">
+                    action="/success.html" method="POST" data-netlify="true">
                 <input type="hidden" name="form-name" value="apply-nurse" />
                 <input type="hidden" name="position" value="Nurse" />
-                <div data-form-body="nurse"></div>
+
+                <!-- PERSONAL INFORMATION -->
+                <div class="form-section">
+                  <div class="form-section-title">Personal Information</div>
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label for="nurse-first-name">First Name <span class="req">*</span></label>
+                      <input type="text" id="nurse-first-name" name="first_name" autocomplete="given-name" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="nurse-last-name">Last Name <span class="req">*</span></label>
+                      <input type="text" id="nurse-last-name" name="last_name" autocomplete="family-name" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="nurse-address">Street Address <span class="req">*</span></label>
+                    <input type="text" id="nurse-address" name="address" autocomplete="street-address" required />
+                    <span class="field-error">Required.</span>
+                  </div>
+                  <div class="form-grid-3">
+                    <div class="form-group">
+                      <label for="nurse-city">City <span class="req">*</span></label>
+                      <input type="text" id="nurse-city" name="city" autocomplete="address-level2" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="nurse-state">State <span class="req">*</span></label>
+                      <input type="text" id="nurse-state" name="state" autocomplete="address-level1" maxlength="2" placeholder="KS" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="nurse-zip">ZIP Code <span class="req">*</span></label>
+                      <input type="text" id="nurse-zip" name="zip" autocomplete="postal-code" inputmode="numeric" maxlength="10" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                  </div>
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label for="nurse-phone">Phone Number <span class="req">*</span></label>
+                      <input type="tel" id="nurse-phone" name="phone" autocomplete="tel" placeholder="(555) 000-0000" required />
+                      <span class="field-error">Enter a valid phone number.</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="nurse-start-date">Date You Can Start <span class="req">*</span></label>
+                      <input type="date" id="nurse-start-date" name="start_date" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                  </div>
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label for="nurse-salary">Desired Salary / Wage <span class="req">*</span></label>
+                      <input type="text" id="nurse-salary" name="desired_salary" placeholder="e.g. $18/hr or $40,000/yr" required />
+                      <span class="field-error">Required.</span>
+                    </div>
+                    <div class="form-group">
+                      <label>High School Diploma or GED? <span class="req">*</span></label>
+                      <div class="radio-group" id="nurse-diploma-group">
+                        <label><input type="radio" name="nurse_diploma" value="Yes" /> Yes</label>
+                        <label><input type="radio" name="nurse_diploma" value="No" /> No</label>
+                      </div>
+                      <span class="field-error" id="nurse-diploma-error">Please select one.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- POSITION INFORMATION -->
+                <div class="form-section">
+                  <div class="form-section-title">Position Information</div>
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label>Hours <span class="req">*</span></label>
+                      <div class="radio-group" id="nurse-hours-group">
+                        <label><input type="radio" name="nurse_hours" value="Full Time" /> Full Time</label>
+                        <label><input type="radio" name="nurse_hours" value="Part Time" /> Part Time</label>
+                      </div>
+                      <span class="field-error" id="nurse-hours-error">Please select one.</span>
+                    </div>
+                    <div class="form-group">
+                      <label>Shift <span class="req">*</span></label>
+                      <div class="radio-group" id="nurse-shift-group">
+                        <label><input type="radio" name="nurse_shift" value="Days" /> Days</label>
+                        <label><input type="radio" name="nurse_shift" value="Nights" /> Nights</label>
+                        <label><input type="radio" name="nurse_shift" value="Either" /> Either</label>
+                      </div>
+                      <span class="field-error" id="nurse-shift-error">Please select one.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="check-group">
+                      <label>
+                        <input type="checkbox" name="nurse_work_auth" id="nurse-work-auth" value="Yes" />
+                        I am authorized to work in the United States on an unrestricted basis <span class="req">*</span>
+                      </label>
+                    </div>
+                    <span class="field-error" id="nurse-auth-error">You must confirm work authorization to apply.</span>
+                  </div>
+                </div>
+
+                <!-- BACKGROUND -->
+                <div class="form-section">
+                  <div class="form-section-title">Background</div>
+                  <div class="form-group">
+                    <label>Have you ever been convicted of a felony? <span class="req">*</span></label>
+                    <div class="radio-group" id="nurse-felony-group">
+                      <label><input type="radio" name="nurse_felony" value="No"  onchange="toggleFelony('nurse', false)" /> No</label>
+                      <label><input type="radio" name="nurse_felony" value="Yes" onchange="toggleFelony('nurse', true)"  /> Yes</label>
+                    </div>
+                    <span class="field-error" id="nurse-felony-error">Please select one.</span>
+                  </div>
+                  <div class="felony-explain" id="nurse-felony-explain">
+                    <div class="form-group">
+                      <label for="nurse-felony-detail">Please explain the conviction(s)</label>
+                      <textarea id="nurse-felony-detail" name="nurse_felony_explanation" placeholder="A conviction does not automatically disqualify you. Please provide details..."></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- EDUCATION & QUALIFICATIONS -->
+                <div class="form-section">
+                  <div class="form-section-title">Education &amp; Qualifications</div>
+                  <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">List schools, colleges, vocational programs, certifications, or any other relevant training.</p>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Education / Program 1</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="nurse-edu1-name">School / Institution</label><input type="text" id="nurse-edu1-name" name="nurse_edu1_name" /></div>
+                      <div class="form-group"><label for="nurse-edu1-degree">Degree / Program / Certificate</label><input type="text" id="nurse-edu1-degree" name="nurse_edu1_degree" /></div>
+                    </div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="nurse-edu1-years">Years Attended</label><input type="text" id="nurse-edu1-years" name="nurse_edu1_years" placeholder="e.g. 2018-2020" /></div>
+                      <div class="form-group"><label for="nurse-edu1-graduated">Graduated / Completed?</label><select id="nurse-edu1-graduated" name="nurse_edu1_graduated"><option value="">Select...</option><option>Yes</option><option>No</option><option>In Progress</option></select></div>
+                    </div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Education / Program 2 (optional)</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="nurse-edu2-name">School / Institution</label><input type="text" id="nurse-edu2-name" name="nurse_edu2_name" /></div>
+                      <div class="form-group"><label for="nurse-edu2-degree">Degree / Program / Certificate</label><input type="text" id="nurse-edu2-degree" name="nurse_edu2_degree" /></div>
+                    </div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="nurse-edu2-years">Years Attended</label><input type="text" id="nurse-edu2-years" name="nurse_edu2_years" placeholder="e.g. 2021-2022" /></div>
+                      <div class="form-group"><label for="nurse-edu2-graduated">Graduated / Completed?</label><select id="nurse-edu2-graduated" name="nurse_edu2_graduated"><option value="">Select...</option><option>Yes</option><option>No</option><option>In Progress</option></select></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SPECIAL SKILLS -->
+                <div class="form-section">
+                  <div class="form-section-title">Special Skills</div>
+                  <div class="form-group">
+                    <label for="nurse-skills">List any special skills relevant to this position</label>
+                    <textarea id="nurse-skills" name="special_skills" placeholder="e.g. CPR certified, wound care, dementia care experience, bilingual (Spanish/English)..."></textarea>
+                  </div>
+                </div>
+
+                <!-- REFERENCES -->
+                <div class="form-section">
+                  <div class="form-section-title">References</div>
+                  <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">Please list three professional or personal references (not family members).</p>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Reference 1</div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="nurse-ref1-name">Full Name</label><input type="text" id="nurse-ref1-name" name="nurse_ref1_name" /></div>
+                      <div class="form-group"><label for="nurse-ref1-phone">Phone Number</label><input type="tel" id="nurse-ref1-phone" name="nurse_ref1_phone" /></div>
+                      <div class="form-group"><label for="nurse-ref1-rel">Relationship</label><input type="text" id="nurse-ref1-rel" name="nurse_ref1_relationship" placeholder="e.g. Former Supervisor" /></div>
+                    </div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Reference 2</div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="nurse-ref2-name">Full Name</label><input type="text" id="nurse-ref2-name" name="nurse_ref2_name" /></div>
+                      <div class="form-group"><label for="nurse-ref2-phone">Phone Number</label><input type="tel" id="nurse-ref2-phone" name="nurse_ref2_phone" /></div>
+                      <div class="form-group"><label for="nurse-ref2-rel">Relationship</label><input type="text" id="nurse-ref2-rel" name="nurse_ref2_relationship" placeholder="e.g. Former Supervisor" /></div>
+                    </div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Reference 3</div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="nurse-ref3-name">Full Name</label><input type="text" id="nurse-ref3-name" name="nurse_ref3_name" /></div>
+                      <div class="form-group"><label for="nurse-ref3-phone">Phone Number</label><input type="tel" id="nurse-ref3-phone" name="nurse_ref3_phone" /></div>
+                      <div class="form-group"><label for="nurse-ref3-rel">Relationship</label><input type="text" id="nurse-ref3-rel" name="nurse_ref3_relationship" placeholder="e.g. Former Supervisor" /></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- WORK HISTORY -->
+                <div class="form-section">
+                  <div class="form-section-title">Work History</div>
+                  <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">List your most recent positions first.</p>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Position 1 (Most Recent)</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="nurse-job1-employer">Employer / Facility</label><input type="text" id="nurse-job1-employer" name="nurse_job1_employer" /></div>
+                      <div class="form-group"><label for="nurse-job1-title">Your Job Title</label><input type="text" id="nurse-job1-title" name="nurse_job1_title" /></div>
+                    </div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="nurse-job1-from">From (date)</label><input type="text" id="nurse-job1-from" name="nurse_job1_from" placeholder="MM/YYYY" /></div>
+                      <div class="form-group"><label for="nurse-job1-to">To (date)</label><input type="text" id="nurse-job1-to" name="nurse_job1_to" placeholder="MM/YYYY or Present" /></div>
+                      <div class="form-group"><label for="nurse-job1-phone">Employer Phone</label><input type="tel" id="nurse-job1-phone" name="nurse_job1_phone" /></div>
+                    </div>
+                    <div class="form-group"><label for="nurse-job1-reason">Reason for Leaving</label><input type="text" id="nurse-job1-reason" name="nurse_job1_reason_for_leaving" /></div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Position 2 (optional)</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="nurse-job2-employer">Employer / Facility</label><input type="text" id="nurse-job2-employer" name="nurse_job2_employer" /></div>
+                      <div class="form-group"><label for="nurse-job2-title">Your Job Title</label><input type="text" id="nurse-job2-title" name="nurse_job2_title" /></div>
+                    </div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="nurse-job2-from">From (date)</label><input type="text" id="nurse-job2-from" name="nurse_job2_from" placeholder="MM/YYYY" /></div>
+                      <div class="form-group"><label for="nurse-job2-to">To (date)</label><input type="text" id="nurse-job2-to" name="nurse_job2_to" placeholder="MM/YYYY or Present" /></div>
+                      <div class="form-group"><label for="nurse-job2-phone">Employer Phone</label><input type="tel" id="nurse-job2-phone" name="nurse_job2_phone" /></div>
+                    </div>
+                    <div class="form-group"><label for="nurse-job2-reason">Reason for Leaving</label><input type="text" id="nurse-job2-reason" name="nurse_job2_reason_for_leaving" /></div>
+                  </div>
+                  <div class="repeat-block">
+                    <div class="repeat-block-label">Position 3 (optional)</div>
+                    <div class="form-grid-2">
+                      <div class="form-group"><label for="nurse-job3-employer">Employer / Facility</label><input type="text" id="nurse-job3-employer" name="nurse_job3_employer" /></div>
+                      <div class="form-group"><label for="nurse-job3-title">Your Job Title</label><input type="text" id="nurse-job3-title" name="nurse_job3_title" /></div>
+                    </div>
+                    <div class="form-grid-3">
+                      <div class="form-group"><label for="nurse-job3-from">From (date)</label><input type="text" id="nurse-job3-from" name="nurse_job3_from" placeholder="MM/YYYY" /></div>
+                      <div class="form-group"><label for="nurse-job3-to">To (date)</label><input type="text" id="nurse-job3-to" name="nurse_job3_to" placeholder="MM/YYYY or Present" /></div>
+                      <div class="form-group"><label for="nurse-job3-phone">Employer Phone</label><input type="tel" id="nurse-job3-phone" name="nurse_job3_phone" /></div>
+                    </div>
+                    <div class="form-group"><label for="nurse-job3-reason">Reason for Leaving</label><input type="text" id="nurse-job3-reason" name="nurse_job3_reason_for_leaving" /></div>
+                  </div>
+                </div>
+
+                <!-- SUBMIT -->
+                <div class="form-submit-row">
+                  <button type="submit" class="btn btn-primary btn-submit">Submit Application</button>
+                </div>
               </form>
             </div>
 
@@ -467,308 +1162,43 @@
     </div>
   </footer>
 
-  <!-- Netlify form field registration: hidden from users, scanned by Netlify bot at deploy time.
-       Required because the actual form fields are JS-injected and invisible to the build scanner. -->
-  <div hidden aria-hidden="true">
-
-    <form name="apply-cna" data-netlify="true" action="/success.html" method="POST">
-      <input type="hidden" name="form-name" value="apply-cna" />
-      <input type="hidden" name="position" value="CNA" />
-      <input name="first_name" /><input name="last_name" />
-      <input name="address" /><input name="city" /><input name="state" /><input name="zip" />
-      <input name="phone" /><input name="start_date" /><input name="desired_salary" />
-      <input name="cna_diploma" /><input name="cna_hours" /><input name="cna_shift" />
-      <input name="cna_work_auth" /><input name="cna_felony" /><input name="cna_felony_explanation" />
-      <input name="cna_edu1_name" /><input name="cna_edu1_degree" /><input name="cna_edu1_years" /><input name="cna_edu1_graduated" />
-      <input name="cna_edu2_name" /><input name="cna_edu2_degree" /><input name="cna_edu2_years" /><input name="cna_edu2_graduated" />
-      <input name="special_skills" />
-      <input name="cna_ref1_name" /><input name="cna_ref1_phone" /><input name="cna_ref1_relationship" />
-      <input name="cna_ref2_name" /><input name="cna_ref2_phone" /><input name="cna_ref2_relationship" />
-      <input name="cna_ref3_name" /><input name="cna_ref3_phone" /><input name="cna_ref3_relationship" />
-      <input name="cna_job1_employer" /><input name="cna_job1_title" /><input name="cna_job1_from" /><input name="cna_job1_to" /><input name="cna_job1_phone" /><input name="cna_job1_reason_for_leaving" />
-      <input name="cna_job2_employer" /><input name="cna_job2_title" /><input name="cna_job2_from" /><input name="cna_job2_to" /><input name="cna_job2_phone" /><input name="cna_job2_reason_for_leaving" />
-      <input name="cna_job3_employer" /><input name="cna_job3_title" /><input name="cna_job3_from" /><input name="cna_job3_to" /><input name="cna_job3_phone" /><input name="cna_job3_reason_for_leaving" />
-    </form>
-
-    <form name="apply-cma" data-netlify="true" action="/success.html" method="POST">
-      <input type="hidden" name="form-name" value="apply-cma" />
-      <input type="hidden" name="position" value="CMA" />
-      <input name="first_name" /><input name="last_name" />
-      <input name="address" /><input name="city" /><input name="state" /><input name="zip" />
-      <input name="phone" /><input name="start_date" /><input name="desired_salary" />
-      <input name="cma_diploma" /><input name="cma_hours" /><input name="cma_shift" />
-      <input name="cma_work_auth" /><input name="cma_felony" /><input name="cma_felony_explanation" />
-      <input name="cma_edu1_name" /><input name="cma_edu1_degree" /><input name="cma_edu1_years" /><input name="cma_edu1_graduated" />
-      <input name="cma_edu2_name" /><input name="cma_edu2_degree" /><input name="cma_edu2_years" /><input name="cma_edu2_graduated" />
-      <input name="special_skills" />
-      <input name="cma_ref1_name" /><input name="cma_ref1_phone" /><input name="cma_ref1_relationship" />
-      <input name="cma_ref2_name" /><input name="cma_ref2_phone" /><input name="cma_ref2_relationship" />
-      <input name="cma_ref3_name" /><input name="cma_ref3_phone" /><input name="cma_ref3_relationship" />
-      <input name="cma_job1_employer" /><input name="cma_job1_title" /><input name="cma_job1_from" /><input name="cma_job1_to" /><input name="cma_job1_phone" /><input name="cma_job1_reason_for_leaving" />
-      <input name="cma_job2_employer" /><input name="cma_job2_title" /><input name="cma_job2_from" /><input name="cma_job2_to" /><input name="cma_job2_phone" /><input name="cma_job2_reason_for_leaving" />
-      <input name="cma_job3_employer" /><input name="cma_job3_title" /><input name="cma_job3_from" /><input name="cma_job3_to" /><input name="cma_job3_phone" /><input name="cma_job3_reason_for_leaving" />
-    </form>
-
-    <form name="apply-nurse" data-netlify="true" action="/success.html" method="POST">
-      <input type="hidden" name="form-name" value="apply-nurse" />
-      <input type="hidden" name="position" value="Nurse" />
-      <input name="first_name" /><input name="last_name" />
-      <input name="address" /><input name="city" /><input name="state" /><input name="zip" />
-      <input name="phone" /><input name="start_date" /><input name="desired_salary" />
-      <input name="nurse_diploma" /><input name="nurse_hours" /><input name="nurse_shift" />
-      <input name="nurse_work_auth" /><input name="nurse_felony" /><input name="nurse_felony_explanation" />
-      <input name="nurse_edu1_name" /><input name="nurse_edu1_degree" /><input name="nurse_edu1_years" /><input name="nurse_edu1_graduated" />
-      <input name="nurse_edu2_name" /><input name="nurse_edu2_degree" /><input name="nurse_edu2_years" /><input name="nurse_edu2_graduated" />
-      <input name="special_skills" />
-      <input name="nurse_ref1_name" /><input name="nurse_ref1_phone" /><input name="nurse_ref1_relationship" />
-      <input name="nurse_ref2_name" /><input name="nurse_ref2_phone" /><input name="nurse_ref2_relationship" />
-      <input name="nurse_ref3_name" /><input name="nurse_ref3_phone" /><input name="nurse_ref3_relationship" />
-      <input name="nurse_job1_employer" /><input name="nurse_job1_title" /><input name="nurse_job1_from" /><input name="nurse_job1_to" /><input name="nurse_job1_phone" /><input name="nurse_job1_reason_for_leaving" />
-      <input name="nurse_job2_employer" /><input name="nurse_job2_title" /><input name="nurse_job2_from" /><input name="nurse_job2_to" /><input name="nurse_job2_phone" /><input name="nurse_job2_reason_for_leaving" />
-      <input name="nurse_job3_employer" /><input name="nurse_job3_title" /><input name="nurse_job3_from" /><input name="nurse_job3_to" /><input name="nurse_job3_phone" /><input name="nurse_job3_reason_for_leaving" />
-    </form>
-
-  </div>
-
   <script src="nav.js"></script>
   <script>
-    // ===== BUILD FORM BODIES =====
-    function buildFormHTML(id) {
-      return `
-        <!-- PERSONAL DATA -->
-        <div class="form-section">
-          <div class="form-section-title">Personal Information</div>
-          <div class="form-grid-2">
-            <div class="form-group">
-              <label for="${id}-first-name">First Name <span class="req">*</span></label>
-              <input type="text" id="${id}-first-name" name="first_name" autocomplete="given-name" required />
-              <span class="field-error">Required.</span>
-            </div>
-            <div class="form-group">
-              <label for="${id}-last-name">Last Name <span class="req">*</span></label>
-              <input type="text" id="${id}-last-name" name="last_name" autocomplete="family-name" required />
-              <span class="field-error">Required.</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="${id}-address">Street Address <span class="req">*</span></label>
-            <input type="text" id="${id}-address" name="address" autocomplete="street-address" required />
-            <span class="field-error">Required.</span>
-          </div>
-          <div class="form-grid-3">
-            <div class="form-group">
-              <label for="${id}-city">City <span class="req">*</span></label>
-              <input type="text" id="${id}-city" name="city" autocomplete="address-level2" required />
-              <span class="field-error">Required.</span>
-            </div>
-            <div class="form-group">
-              <label for="${id}-state">State <span class="req">*</span></label>
-              <input type="text" id="${id}-state" name="state" autocomplete="address-level1" maxlength="2" placeholder="KS" required />
-              <span class="field-error">Required.</span>
-            </div>
-            <div class="form-group">
-              <label for="${id}-zip">ZIP Code <span class="req">*</span></label>
-              <input type="text" id="${id}-zip" name="zip" autocomplete="postal-code" inputmode="numeric" maxlength="10" required />
-              <span class="field-error">Required.</span>
-            </div>
-          </div>
-          <div class="form-grid-2">
-            <div class="form-group">
-              <label for="${id}-phone">Phone Number <span class="req">*</span></label>
-              <input type="tel" id="${id}-phone" name="phone" autocomplete="tel" placeholder="(555) 000-0000" required />
-              <span class="field-error">Enter a valid phone number.</span>
-            </div>
-            <div class="form-group">
-              <label for="${id}-start-date">Date You Can Start <span class="req">*</span></label>
-              <input type="date" id="${id}-start-date" name="start_date" required />
-              <span class="field-error">Required.</span>
-            </div>
-          </div>
-          <div class="form-grid-2">
-            <div class="form-group">
-              <label for="${id}-salary">Desired Salary / Wage <span class="req">*</span></label>
-              <input type="text" id="${id}-salary" name="desired_salary" placeholder="e.g. $18/hr or $40,000/yr" required />
-              <span class="field-error">Required.</span>
-            </div>
-            <div class="form-group">
-              <label>High School Diploma or GED? <span class="req">*</span></label>
-              <div class="radio-group" id="${id}-diploma-group">
-                <label><input type="radio" name="${id}_diploma" value="Yes" required /> Yes</label>
-                <label><input type="radio" name="${id}_diploma" value="No" /> No</label>
-              </div>
-              <span class="field-error" id="${id}-diploma-error">Please select one.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- POSITION INFORMATION -->
-        <div class="form-section">
-          <div class="form-section-title">Position Information</div>
-          <div class="form-grid-2">
-            <div class="form-group">
-              <label>Hours <span class="req">*</span></label>
-              <div class="radio-group" id="${id}-hours-group">
-                <label><input type="radio" name="${id}_hours" value="Full Time" required /> Full Time</label>
-                <label><input type="radio" name="${id}_hours" value="Part Time" /> Part Time</label>
-              </div>
-              <span class="field-error" id="${id}-hours-error">Please select one.</span>
-            </div>
-            <div class="form-group">
-              <label>Shift <span class="req">*</span></label>
-              <div class="radio-group" id="${id}-shift-group">
-                <label><input type="radio" name="${id}_shift" value="Days" required /> Days</label>
-                <label><input type="radio" name="${id}_shift" value="Nights" /> Nights</label>
-                <label><input type="radio" name="${id}_shift" value="Either" /> Either</label>
-              </div>
-              <span class="field-error" id="${id}-shift-error">Please select one.</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="check-group">
-              <label>
-                <input type="checkbox" name="${id}_work_auth" id="${id}-work-auth" value="Yes" />
-                I am authorized to work in the United States on an unrestricted basis <span class="req">*</span>
-              </label>
-            </div>
-            <span class="field-error" id="${id}-auth-error">You must confirm work authorization to apply.</span>
-          </div>
-        </div>
-
-        <!-- FELONY -->
-        <div class="form-section">
-          <div class="form-section-title">Background</div>
-          <div class="form-group">
-            <label>Have you ever been convicted of a felony? <span class="req">*</span></label>
-            <div class="radio-group" id="${id}-felony-group">
-              <label><input type="radio" name="${id}_felony" value="No"  required onchange="toggleFelony('${id}', false)" /> No</label>
-              <label><input type="radio" name="${id}_felony" value="Yes"          onchange="toggleFelony('${id}', true)"  /> Yes</label>
-            </div>
-            <span class="field-error" id="${id}-felony-error">Please select one.</span>
-          </div>
-          <div class="felony-explain" id="${id}-felony-explain">
-            <div class="form-group">
-              <label for="${id}-felony-detail">Please explain the conviction(s)</label>
-              <textarea id="${id}-felony-detail" name="${id}_felony_explanation" placeholder="A conviction does not automatically disqualify you. Please provide details…"></textarea>
-            </div>
-          </div>
-        </div>
-
-        <!-- QUALIFICATIONS / EDUCATION -->
-        <div class="form-section">
-          <div class="form-section-title">Education &amp; Qualifications</div>
-          <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">List schools, colleges, vocational programs, certifications, or any other relevant training.</p>
-          <div class="repeat-block">
-            <div class="repeat-block-label">Education / Program 1</div>
-            <div class="form-grid-2">
-              <div class="form-group"><label for="${id}-edu1-name">School / Institution</label><input type="text" id="${id}-edu1-name" name="${id}_edu1_name" /></div>
-              <div class="form-group"><label for="${id}-edu1-degree">Degree / Program / Certificate</label><input type="text" id="${id}-edu1-degree" name="${id}_edu1_degree" /></div>
-            </div>
-            <div class="form-grid-2">
-              <div class="form-group"><label for="${id}-edu1-years">Years Attended</label><input type="text" id="${id}-edu1-years" name="${id}_edu1_years" placeholder="e.g. 2018–2020" /></div>
-              <div class="form-group"><label for="${id}-edu1-graduated">Graduated / Completed?</label><select id="${id}-edu1-graduated" name="${id}_edu1_graduated"><option value="">Select…</option><option>Yes</option><option>No</option><option>In Progress</option></select></div>
-            </div>
-          </div>
-          <div class="repeat-block">
-            <div class="repeat-block-label">Education / Program 2 (optional)</div>
-            <div class="form-grid-2">
-              <div class="form-group"><label for="${id}-edu2-name">School / Institution</label><input type="text" id="${id}-edu2-name" name="${id}_edu2_name" /></div>
-              <div class="form-group"><label for="${id}-edu2-degree">Degree / Program / Certificate</label><input type="text" id="${id}-edu2-degree" name="${id}_edu2_degree" /></div>
-            </div>
-            <div class="form-grid-2">
-              <div class="form-group"><label for="${id}-edu2-years">Years Attended</label><input type="text" id="${id}-edu2-years" name="${id}_edu2_years" placeholder="e.g. 2021–2022" /></div>
-              <div class="form-group"><label for="${id}-edu2-graduated">Graduated / Completed?</label><select id="${id}-edu2-graduated" name="${id}_edu2_graduated"><option value="">Select…</option><option>Yes</option><option>No</option><option>In Progress</option></select></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SPECIAL SKILLS -->
-        <div class="form-section">
-          <div class="form-section-title">Special Skills</div>
-          <div class="form-group">
-            <label for="${id}-skills">List any special skills relevant to this position</label>
-            <textarea id="${id}-skills" name="special_skills" placeholder="e.g. CPR certified, wound care, dementia care experience, bilingual (Spanish/English)…"></textarea>
-          </div>
-        </div>
-
-        <!-- REFERENCES -->
-        <div class="form-section">
-          <div class="form-section-title">References</div>
-          <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">Please list three professional or personal references (not family members).</p>
-          ${[1,2,3].map(n => `
-          <div class="repeat-block">
-            <div class="repeat-block-label">Reference ${n}</div>
-            <div class="form-grid-3">
-              <div class="form-group"><label for="${id}-ref${n}-name">Full Name</label><input type="text" id="${id}-ref${n}-name" name="${id}_ref${n}_name" /></div>
-              <div class="form-group"><label for="${id}-ref${n}-phone">Phone Number</label><input type="tel" id="${id}-ref${n}-phone" name="${id}_ref${n}_phone" /></div>
-              <div class="form-group"><label for="${id}-ref${n}-rel">Relationship</label><input type="text" id="${id}-ref${n}-rel" name="${id}_ref${n}_relationship" placeholder="e.g. Former Supervisor" /></div>
-            </div>
-          </div>`).join('')}
-        </div>
-
-        <!-- WORK HISTORY -->
-        <div class="form-section">
-          <div class="form-section-title">Work History</div>
-          <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">List your most recent positions first.</p>
-          ${[1,2,3].map(n => `
-          <div class="repeat-block">
-            <div class="repeat-block-label">Position ${n}${n === 1 ? ' (Most Recent)' : ' (optional)'}</div>
-            <div class="form-grid-2">
-              <div class="form-group"><label for="${id}-job${n}-employer">Employer / Facility</label><input type="text" id="${id}-job${n}-employer" name="${id}_job${n}_employer" /></div>
-              <div class="form-group"><label for="${id}-job${n}-title">Your Job Title</label><input type="text" id="${id}-job${n}-title" name="${id}_job${n}_title" /></div>
-            </div>
-            <div class="form-grid-3">
-              <div class="form-group"><label for="${id}-job${n}-from">From (date)</label><input type="text" id="${id}-job${n}-from" name="${id}_job${n}_from" placeholder="MM/YYYY" /></div>
-              <div class="form-group"><label for="${id}-job${n}-to">To (date)</label><input type="text" id="${id}-job${n}-to" name="${id}_job${n}_to" placeholder="MM/YYYY or Present" /></div>
-              <div class="form-group"><label for="${id}-job${n}-phone">Employer Phone</label><input type="tel" id="${id}-job${n}-phone" name="${id}_job${n}_phone" /></div>
-            </div>
-            <div class="form-group"><label for="${id}-job${n}-reason">Reason for Leaving</label><input type="text" id="${id}-job${n}-reason" name="${id}_job${n}_reason_for_leaving" /></div>
-          </div>`).join('')}
-        </div>
-
-        <!-- SUBMIT -->
-        <div class="form-submit-row">
-          <button type="submit" class="btn btn-primary btn-submit">Submit Application</button>
-        </div>
-      `;
-    }
-
-    // Inject form HTML into each panel
-    ['cna','cma','nurse'].forEach(id => {
-      const el = document.querySelector(`[data-form-body="${id}"]`);
-      if (el) el.innerHTML = buildFormHTML(id);
-    });
-
     // Set min date for start date fields
     const today = new Date().toISOString().split('T')[0];
-    document.querySelectorAll('[id$="-start-date"]').forEach(el => el.setAttribute('min', today));
+    document.querySelectorAll('[id$="-start-date"]').forEach(function(el) {
+      el.setAttribute('min', today);
+    });
 
     // ===== TAB SWITCHING =====
     function switchTab(id) {
-      document.querySelectorAll('.tab-btn').forEach(b => {
+      document.querySelectorAll('.tab-btn').forEach(function(b) {
         b.classList.remove('active');
         b.setAttribute('aria-selected', 'false');
       });
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(function(p) {
+        p.classList.remove('active');
+      });
       document.getElementById('tab-' + id).classList.add('active');
       document.getElementById('tab-' + id).setAttribute('aria-selected', 'true');
       document.getElementById('panel-' + id).classList.add('active');
     }
 
-    // ===== FELONY TOGGLE =====
+    // ===== FELONY CONDITIONAL =====
     function toggleFelony(id, show) {
-      const box = document.getElementById(id + '-felony-explain');
+      var box = document.getElementById(id + '-felony-explain');
       if (box) box.classList.toggle('visible', show);
     }
 
-    // ===== FORM VALIDATION & SUBMIT =====
+    // ===== VALIDATION =====
     function validateForm(id) {
-      let valid = true;
-      const form = document.getElementById('form-' + id);
+      var valid = true;
+      var form = document.getElementById('form-' + id);
 
-      // Required text/date/tel inputs and selects
-      form.querySelectorAll('input[required], select[required]').forEach(el => {
-        const err = el.nextElementSibling;
-        const ok = el.value.trim() !== '';
+      // Required text / date / tel inputs and selects
+      form.querySelectorAll('input[required], select[required]').forEach(function(el) {
+        var err = el.nextElementSibling;
+        var ok = el.value.trim() !== '';
         el.classList.toggle('error', !ok);
         if (err && err.classList.contains('field-error')) err.classList.toggle('visible', !ok);
         if (!ok) valid = false;
@@ -776,22 +1206,22 @@
 
       // Radio groups
       [
-        [id + '-diploma-group',  id + '-diploma-error'],
-        [id + '-hours-group',    id + '-hours-error'],
-        [id + '-shift-group',    id + '-shift-error'],
-        [id + '-felony-group',   id + '-felony-error'],
-      ].forEach(([groupId, errId]) => {
-        const group = document.getElementById(groupId);
-        const errEl = document.getElementById(errId);
+        [id + '-diploma-group', id + '-diploma-error'],
+        [id + '-hours-group',   id + '-hours-error'],
+        [id + '-shift-group',   id + '-shift-error'],
+        [id + '-felony-group',  id + '-felony-error'],
+      ].forEach(function(pair) {
+        var group = document.getElementById(pair[0]);
+        var errEl = document.getElementById(pair[1]);
         if (!group || !errEl) return;
-        const checked = group.querySelector('input[type="radio"]:checked');
+        var checked = group.querySelector('input[type="radio"]:checked');
         errEl.classList.toggle('visible', !checked);
         if (!checked) valid = false;
       });
 
       // Work auth checkbox
-      const authBox  = document.getElementById(id + '-work-auth');
-      const authErr  = document.getElementById(id + '-auth-error');
+      var authBox = document.getElementById(id + '-work-auth');
+      var authErr = document.getElementById(id + '-auth-error');
       if (authBox && authErr) {
         authErr.classList.toggle('visible', !authBox.checked);
         if (!authBox.checked) valid = false;
@@ -800,46 +1230,18 @@
       return valid;
     }
 
-    ['cna','cma','nurse'].forEach(id => {
-      // Attach submit after DOM is ready (forms are injected above)
-      setTimeout(() => {
-        const form = document.getElementById('form-' + id);
-        if (!form) return;
-        form.addEventListener('submit', function(e) {
+    // ===== SUBMIT HANDLERS =====
+    // Only preventDefault when validation fails; valid forms submit natively to Netlify.
+    ['cna', 'cma', 'nurse'].forEach(function(id) {
+      var form = document.getElementById('form-' + id);
+      if (!form) return;
+      form.addEventListener('submit', function(e) {
+        if (!validateForm(id)) {
           e.preventDefault();
-          if (!validateForm(id)) {
-            const firstErr = form.querySelector('.error, input:invalid');
-            if (firstErr) firstErr.focus();
-            return;
-          }
-          const btn = form.querySelector('.btn-submit');
-          btn.disabled = true;
-          btn.textContent = 'Submitting…';
-          const params = new URLSearchParams();
-          form.querySelectorAll('input, select, textarea').forEach(function(field) {
-            if (!field.name) return;
-            if ((field.type === 'checkbox' || field.type === 'radio') && !field.checked) return;
-            params.append(field.name, field.value);
-          });
-          fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: params.toString(),
-          })
-          .then(function(res) {
-            if (res.ok) {
-              window.location.href = '/success.html';
-            } else {
-              throw new Error();
-            }
-          })
-          .catch(function() {
-            btn.disabled = false;
-            btn.textContent = 'Submit Application';
-            alert('Something went wrong. Please try again.');
-          });
-        });
-      }, 0);
+          var firstErr = form.querySelector('.error');
+          if (firstErr) firstErr.focus();
+        }
+      });
     });
   </script>
   <script src="socials.js"></script>
