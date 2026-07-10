@@ -735,7 +735,7 @@
     // Inject form HTML into each panel
     ['cna','cma','nurse'].forEach(id => {
       const el = document.querySelector(`[data-form-body="${id}"]`);
-      if (el) el.outerHTML = buildFormHTML(id);
+      if (el) el.innerHTML = buildFormHTML(id);
     });
 
     // Set min date for start date fields
@@ -815,10 +815,16 @@
           const btn = form.querySelector('.btn-submit');
           btn.disabled = true;
           btn.textContent = 'Submitting…';
+          const params = new URLSearchParams();
+          form.querySelectorAll('input, select, textarea').forEach(function(field) {
+            if (!field.name) return;
+            if ((field.type === 'checkbox' || field.type === 'radio') && !field.checked) return;
+            params.append(field.name, field.value);
+          });
           fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(new FormData(form)).toString(),
+            body: params.toString(),
           })
           .then(function(res) {
             if (res.ok) {
