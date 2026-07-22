@@ -6,6 +6,8 @@ excerpt: Our Mi Casa Care Homes residents recently traded their usual
   and judging by the smiles, everyone walked away a winner!
 featured_image: /images/20260715_135837.jpg
 ---
+Our Mi Casa Care Homes residents recently traded their usual surroundings for the lights, sounds, and excitement of a day at the casino, and judging by the smiles, everyone walked away a winner!
+
 The outing gave residents an opportunity to enjoy games, share laughs, eat together, and experience something different as a group. While winning is always exciting, the real jackpot was the time spent making memories with friends.
 
 Community outings like this are about much more than entertainment. Meaningful social connection can help reduce feelings of loneliness and support better mental and emotional well-being. The Centers for Disease Control and Prevention reports that strong social connections are associated with healthier, longer lives and a reduced risk of depression, anxiety, dementia, and other serious health concerns.
