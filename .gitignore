@@ -9,3 +9,9 @@ tools/.env
 # Python
 __pycache__/
 *.py[cod]
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
